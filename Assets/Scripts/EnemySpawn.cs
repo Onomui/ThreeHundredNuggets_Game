@@ -18,13 +18,13 @@ public class EnemySpawn : MonoBehaviour
 
     private IEnumerator SpawnEnemy(GameObject enemy, float respawnTimer)
     {
-        yield return new WaitForSeconds(respawnTimer);
         var newEnemy = Instantiate(enemy);
         var newEnemyScript = newEnemy.GetComponent<BasicEnemy>();
         newEnemyScript.path = path;
+        newEnemyScript.enemySpawner = gameObject;
         allEnemies.Add(newEnemy);
 
+        yield return new WaitForSeconds(respawnTimer);
         StartCoroutine(SpawnEnemy(enemy, respawnTimer));
     }
-
 }

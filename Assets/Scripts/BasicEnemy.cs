@@ -10,30 +10,43 @@ public class BasicEnemy : MonoBehaviour
     private float speed;
     private int curPathPoint = 1;
     private bool isStopped = false;
+
+    public GameObject enemySpawner;
+
+    public int Health = 3;
     void Start()
     {
         transform.position = path[0].position;
-
     }
 
-    
+
     void Update()
     {
         if (!isStopped)
         {
             MoveOnPath();
         }
+        CheckDeath();
     }
 
-    private void MoveOnPath() 
+    private void MoveOnPath()
     {
         if (curPathPoint == path.Length)
             isStopped = true;
         else
-        { 
+        {
             transform.position = Vector2.MoveTowards(transform.position, path[curPathPoint].position, speed * Time.deltaTime);
             if (transform.position == path[curPathPoint].position)
                 curPathPoint++;
+        }
+    }
+
+    private void CheckDeath()
+    {
+        if (Health <= 0)
+        {
+            enemySpawner.GetComponent<EnemySpawn>().allEnemies.Remove(gameObject);
+            Destroy(gameObject);
         }
     }
 
