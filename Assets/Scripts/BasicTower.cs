@@ -11,6 +11,7 @@ public class BasicTower : MonoBehaviour
     private float fireRate = 1f;
     private float currentCooldown;
     private bool isLocked;
+    private Vector2 vectorToTarget;
     
     void Start()
     {
@@ -27,7 +28,7 @@ public class BasicTower : MonoBehaviour
 
     private void LookAtNearestEnemy()
     {
-        var vectorToTarget = FindNeatestEnemy();
+        vectorToTarget = FindNeatestEnemy();
         float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle - 90);
     }
@@ -50,10 +51,11 @@ public class BasicTower : MonoBehaviour
 
     private void Shoot()
     {
+        
         currentCooldown -= Time.deltaTime;
         if (currentCooldown <= 0)
         {
-            Instantiate(bullet, transform.position, transform.rotation);
+            Instantiate(bullet, transform.position + new Vector3(vectorToTarget.x, vectorToTarget.y, 0).normalized, transform.rotation);
             currentCooldown = fireRate;
         }
     }

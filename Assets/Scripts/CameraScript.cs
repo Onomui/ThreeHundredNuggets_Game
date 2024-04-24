@@ -11,7 +11,6 @@ public class CameraScript : MonoBehaviour
     [SerializeField]
     private Tilemap tilemap;
 
-    private float edgeSize = 20f;
     [SerializeField]
     private float moveAmount = 2f;
     private Vector3 cameraMove;
@@ -45,13 +44,13 @@ public class CameraScript : MonoBehaviour
 
     private void CheckEdgeMovement()
     {
-        if (Input.mousePosition.x > Screen.width - edgeSize)
+        if (Input.GetKey(KeyCode.RightArrow))
             cameraMove.x = 1;
-        if (Input.mousePosition.x < edgeSize)
+        if (Input.GetKey(KeyCode.LeftArrow))
             cameraMove.x = -1;
-        if (Input.mousePosition.y > Screen.height - edgeSize)
+        if (Input.GetKey(KeyCode.UpArrow))
             cameraMove.y = 1;
-        if (Input.mousePosition.y < edgeSize)
+        if (Input.GetKey(KeyCode.DownArrow))
             cameraMove.y = -1;
 
         Camera.main.transform.position += cameraMove.normalized * moveAmount * Time.deltaTime;
