@@ -3,14 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Serialization;
 using UnityEngine;
-
 public class BasicTower : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject enemySpawner;
-    [SerializeField]
-    private List<GameObject> enemies;
-
     [SerializeField]
     GameObject bullet;
     [SerializeField]
@@ -20,7 +14,6 @@ public class BasicTower : MonoBehaviour
     
     void Start()
     {
-        enemies = enemySpawner.GetComponent<EnemySpawn>().allEnemies;
         currentCooldown = fireRate;
     }
 
@@ -42,8 +35,8 @@ public class BasicTower : MonoBehaviour
     private Vector2 FindNeatestEnemy()
     {
         float shortestDistance = Mathf.Infinity;
-        var vector = enemySpawner.transform.position;
-        foreach (var enemy in enemies)
+        var vector = Vector2.zero;
+        foreach (var enemy in MapGlobalFields.allEnemies)
         {
             if (Vector2.Distance(enemy.transform.position, transform.position) < shortestDistance)
             {
@@ -51,7 +44,7 @@ public class BasicTower : MonoBehaviour
                 vector = enemy.transform.position - transform.position;
             }
         }
-        isLocked = vector != enemySpawner.transform.position;
+        isLocked = vector != Vector2.zero;
         return vector;
     }
 

@@ -11,8 +11,6 @@ public class BasicEnemy : MonoBehaviour
     private int curPathPoint = 1;
     private bool isStopped = false;
 
-    public GameObject enemySpawner;
-
     public int Health = 3;
     void Start()
     {
@@ -45,7 +43,7 @@ public class BasicEnemy : MonoBehaviour
     {
         if (Health <= 0)
         {
-            enemySpawner.GetComponent<EnemySpawn>().allEnemies.Remove(gameObject);
+            MapGlobalFields.allEnemies.Remove(gameObject);
             Destroy(gameObject);
         }
     }

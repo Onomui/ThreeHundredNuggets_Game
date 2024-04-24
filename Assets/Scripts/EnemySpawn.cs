@@ -10,7 +10,6 @@ public class EnemySpawn : MonoBehaviour
     private Transform[] path;
     [SerializeField]
     private float respawnTimer;
-    public List<GameObject> allEnemies;
     void Start()
     {
         StartCoroutine(SpawnEnemy(enemy, respawnTimer));
@@ -21,8 +20,7 @@ public class EnemySpawn : MonoBehaviour
         var newEnemy = Instantiate(enemy);
         var newEnemyScript = newEnemy.GetComponent<BasicEnemy>();
         newEnemyScript.path = path;
-        newEnemyScript.enemySpawner = gameObject;
-        allEnemies.Add(newEnemy);
+        MapGlobalFields.allEnemies.Add(newEnemy);
 
         yield return new WaitForSeconds(respawnTimer);
         StartCoroutine(SpawnEnemy(enemy, respawnTimer));
