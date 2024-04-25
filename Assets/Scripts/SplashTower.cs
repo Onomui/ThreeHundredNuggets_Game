@@ -1,9 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Serialization;
 using UnityEngine;
-public class BasicTower : MonoBehaviour
+public class SplashTower : MonoBehaviour
 {
     [SerializeField]
     GameObject bullet;
@@ -12,7 +12,9 @@ public class BasicTower : MonoBehaviour
     private float currentCooldown;
     private bool isLocked;
     private Vector2 vectorToTarget;
+    [SerializeField]
     private float radius = 7;
+    
     void Start()
     {
         currentCooldown = fireRate;
