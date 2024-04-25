@@ -12,7 +12,7 @@ public class BasicTower : MonoBehaviour
     private float currentCooldown;
     private bool isLocked;
     private Vector2 vectorToTarget;
-    
+    private float radius = 7;
     void Start()
     {
         currentCooldown = fireRate;
@@ -39,7 +39,8 @@ public class BasicTower : MonoBehaviour
         var vector = Vector2.zero;
         foreach (var enemy in MapGlobalFields.allEnemies)
         {
-            if (Vector2.Distance(enemy.transform.position, transform.position) < shortestDistance)
+            var distance = Vector2.Distance(enemy.transform.position, transform.position);
+            if (distance < shortestDistance && distance < radius)
             {
                 shortestDistance = Vector2.Distance(enemy.transform.position, transform.position);
                 vector = enemy.transform.position - transform.position;
