@@ -7,12 +7,12 @@ public class SplashBulletMovement : MonoBehaviour
 {
     [SerializeField] private float bulletSpeed = 0.5f;
     [SerializeField] private float bulletLifeTime = 3; 
-    private CircleCollider2D collider;
+    private CircleCollider2D circleCollider;
     private bool IsStoped = false;
     private List<GameObject> injured;
     void Start()
     {
-        collider = GetComponent<CircleCollider2D>();
+        circleCollider = GetComponent<CircleCollider2D>();
         injured = new();
     }
 
@@ -27,7 +27,7 @@ public class SplashBulletMovement : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            collider.radius = 30;
+            circleCollider.radius = 30;
             StartCoroutine(DeleteBullet());
             IsStoped = true;
         }
