@@ -178,8 +178,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   speed: 2
-  enemySpawner: {fileID: 0}
-  Health: 1
+  Health: 2
 --- !u!95 &7269372578019874015
 Animator:
   serializedVersion: 5
