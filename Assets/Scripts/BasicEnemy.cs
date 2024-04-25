@@ -8,23 +8,57 @@ public class BasicEnemy : MonoBehaviour
     public Transform[] path;
     [SerializeField]
     private float speed;
+    [SerializeField]
+    private Sprite frozenEnemy;
+    private SpriteRenderer spriteRenderer;
     private int curPathPoint = 1;
     private bool isStopped = false;
+    private float stopDuration = 0f;
+    private float stopTimer = 0f;
+    private Animator animator;
 
     public int Health = 3;
     void Start()
     {
         transform.position = path[0].position;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
 
     void Update()
     {
+        if (isStopped)
+        {
+            stopTimer += Time.deltaTime;
+            if (stopTimer >= stopDuration)
+            {
+                isStopped = false;
+                animator.enabled = true;
+            }
+        }
+
         if (!isStopped)
         {
             MoveOnPath();
         }
         CheckDeath();
+    }
+
+    public void StopMovement(float duration)
+    {
+        isStopped = true;
+        stopDuration = duration;
+        stopTimer = 0f;
+    }
+
+    public void ChangeSprite()
+    {
+        if (frozenEnemy != null)
+        {
+            animator.enabled = false;
+            spriteRenderer.sprite = frozenEnemy;
+        }
     }
 
     private void MoveOnPath()
