@@ -8,12 +8,12 @@ public class SplashTower : MonoBehaviour
     [SerializeField]
     GameObject bullet;
     [SerializeField]
-    private float fireRate = 1f;
+    private float fireRate = 3f;
     private float currentCooldown;
     private bool isLocked;
     private Vector2 vectorToTarget;
     [SerializeField]
-    private float radius = 7;
+    private float radius = 100;
     
     void Start()
     {

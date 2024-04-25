@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletMovement : MonoBehaviour
+public class BasicBullet : MonoBehaviour
 {
     [SerializeField]
     private float bulletSpeed = 0.5f;
     [SerializeField]
     private float bulletLifeTime = 3;
+    [SerializeField]
+    private int damage = 1;
     void Start()
     {
 
     }
-    void Update()
+    void FixedUpdate()
     {
         transform.Translate(Vector3.up * bulletSpeed);
         CheckFall();
@@ -22,7 +24,7 @@ public class BulletMovement : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            collision.GetComponent<BasicEnemy>().Health--;
+            collision.GetComponent<BasicEnemy>().Health -= damage;
         }
         Destroy(gameObject);
     }

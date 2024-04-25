@@ -99,7 +99,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 0.05
-  bulletLifeTime: 3
+  bulletLifeTime: 8
+  splashRadius: 25
+  explosion: {fileID: 21300000, guid: a848816e49705a44f9c6d1081145db51, type: 3}
+  damage: 2
 --- !u!58 &4119104742889399629
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -134,4 +137,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3.35
+  m_Radius: 3.6

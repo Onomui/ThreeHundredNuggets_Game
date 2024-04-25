@@ -10,6 +10,8 @@ public class BasicEnemy : MonoBehaviour
     private float speed;
     [SerializeField]
     private Sprite frozenEnemy;
+    [SerializeField]
+    private int moneyDrop = 10;
     private SpriteRenderer spriteRenderer;
     private int curPathPoint = 1;
     private bool isStopped = false;
@@ -38,11 +40,14 @@ public class BasicEnemy : MonoBehaviour
             }
         }
 
+        CheckDeath();
+    }
+    private void FixedUpdate()
+    {
         if (!isStopped)
         {
             MoveOnPath();
         }
-        CheckDeath();
     }
 
     public void StopMovement(float duration)
@@ -78,6 +83,7 @@ public class BasicEnemy : MonoBehaviour
         if (Health <= 0)
         {
             MapGlobalFields.allEnemies.Remove(gameObject);
+            Camera.main.GetComponent<CameraScript>().ChangeMoney(moneyDrop);
             Destroy(gameObject);
         }
     }

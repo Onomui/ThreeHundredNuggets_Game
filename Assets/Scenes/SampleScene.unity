@@ -629,6 +629,73 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3911d9c2c38194b4db399893109c9250, type: 3}
+--- !u!1 &508031424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 508031426}
+  - component: {fileID: 508031425}
+  - component: {fileID: 508031427}
+  m_Layer: 5
+  m_Name: Hud
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &508031425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508031424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 682c7930f8587c544961c662bb9955b1, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 23383f7d07c107545873bd3777fc07d2, type: 3}
+  m_SortingOrder: 0
+--- !u!4 &508031426
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508031424}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &508031427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508031424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baefb7170a72e8f41a24a8295b86fd96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burgerTower: {fileID: 6737043931232854861, guid: d98612976df690a4090b31091cf91640, type: 3}
+  burgerTowerSprite: {fileID: -1669064295, guid: efaa2cc62311f2a4d82695d0231dd8a5, type: 3}
+  cakeTower: {fileID: 3547847107398871135, guid: 6d4ad57c02c9073458025effb116b65f, type: 3}
+  cakeTowerSprite: {fileID: 21300000, guid: 993db40465b57854d8412c4327e91c1b, type: 3}
+  colaTower: {fileID: 6737043931232854861, guid: 6f92d4f044b610042b14b3cb5a1abbcc, type: 3}
+  colaTowerSprite: {fileID: 21300000, guid: 0a620010ace826f4b9ae5df6b6434777, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,7 +801,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c321663f6900a854a84d054a79b29bdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Hud: {fileID: 508031424}
   tower: {fileID: 6737043931232854861, guid: d98612976df690a4090b31091cf91640, type: 3}
+  cost: 100
   tilemap: {fileID: 95585413}
   moveAmount: 12
   scrollSpeed: 20
@@ -904,7 +973,8 @@ MonoBehaviour:
   - {fileID: 1949868896}
   - {fileID: 1621333931}
   - {fileID: 54499045}
-  respawnTimer: 2
+  respawnTimer: 4
+  spawnDecrease: 0.1
 --- !u!4 &837609931 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5455108377793712902, guid: 3911d9c2c38194b4db399893109c9250, type: 3}
@@ -21526,8 +21596,9 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 752093074}
+  - {fileID: 519420032}
+  - {fileID: 508031426}
   - {fileID: 1759643190}
   - {fileID: 635206521}
   - {fileID: 1961723773}
-  - {fileID: 519420032}
+  - {fileID: 752093074}

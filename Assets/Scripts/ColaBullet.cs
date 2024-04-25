@@ -10,11 +10,8 @@ public class ColaBullet : MonoBehaviour
     private float bulletLifeTime = 3;
     [SerializeField]
     private float stopMovement = 2f;
-    void Start()
-    {
 
-    }
-    void Update()
+    void FixedUpdate()
     {
         transform.Translate(Vector3.up * bulletSpeed);
         CheckFall();

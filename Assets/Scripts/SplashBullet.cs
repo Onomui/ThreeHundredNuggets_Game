@@ -6,7 +6,10 @@ using UnityEngine;
 public class SplashBulletMovement : MonoBehaviour
 {
     [SerializeField] private float bulletSpeed = 0.5f;
-    [SerializeField] private float bulletLifeTime = 3; 
+    [SerializeField] private float bulletLifeTime = 3;
+    [SerializeField] private float splashRadius = 30;
+    [SerializeField] private Sprite explosion;
+    [SerializeField] private int damage = 2;
     private CircleCollider2D circleCollider;
     private bool IsStoped = false;
     private List<GameObject> injured;
@@ -16,7 +19,7 @@ public class SplashBulletMovement : MonoBehaviour
         injured = new();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (!IsStoped)
             transform.Translate(Vector3.up * bulletSpeed);
@@ -27,7 +30,9 @@ public class SplashBulletMovement : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            circleCollider.radius = 30;
+            circleCollider.radius = splashRadius;
+            transform.eulerAngles = Vector3.zero;
+            GetComponent<SpriteRenderer>().sprite = explosion;
             StartCoroutine(DeleteBullet());
             IsStoped = true;
         }
@@ -37,14 +42,14 @@ public class SplashBulletMovement : MonoBehaviour
     {  
         if (collision.tag == "Enemy" && !injured.Contains(collision.gameObject)) 
         {
-                collision.GetComponent<BasicEnemy>().Health--;
+                collision.GetComponent<BasicEnemy>().Health -= damage;
                 injured.Add(collision.gameObject);
         }
     }
 
     private IEnumerator DeleteBullet()
     {
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.2f);
         Destroy(gameObject);
     }
 

@@ -10,6 +10,8 @@ public class EnemySpawn : MonoBehaviour
     private Transform[] path;
     [SerializeField]
     private float respawnTimer;
+    [SerializeField]
+    private float spawnDecrease = 0.1f;
     void Start()
     {
         StartCoroutine(SpawnEnemy(enemy, respawnTimer));
@@ -23,6 +25,8 @@ public class EnemySpawn : MonoBehaviour
         MapGlobalFields.allEnemies.Add(newEnemy);
 
         yield return new WaitForSeconds(respawnTimer);
+        if (respawnTimer > 0.5f)
+            respawnTimer -= spawnDecrease;
         StartCoroutine(SpawnEnemy(enemy, respawnTimer));
     }
 }
