@@ -10,7 +10,7 @@ public class CameraScript : MonoBehaviour
     private GameObject Hud;
     private UI uiScript;
     public GameObject tower;
-    private int money = 100;
+    private int money = 200;
     public int cost = 100;
 
 
