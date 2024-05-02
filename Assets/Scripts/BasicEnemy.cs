@@ -20,6 +20,7 @@ public class BasicEnemy : MonoBehaviour
     private Animator animator;
 
     public int Health = 3;
+    public int Damage = 1;
     void Start()
     {
         transform.position = path[0].position;
@@ -82,10 +83,14 @@ public class BasicEnemy : MonoBehaviour
     {
         if (Health <= 0)
         {
-            MapGlobalFields.allEnemies.Remove(gameObject);
             Camera.main.GetComponent<CameraScript>().ChangeMoney(moneyDrop);
-            Destroy(gameObject);
+            KillEnemy();
         }
     }
 
+    public void KillEnemy()
+    {
+        MapGlobalFields.allEnemies.Remove(gameObject);
+        Destroy(gameObject);
+    }
 }

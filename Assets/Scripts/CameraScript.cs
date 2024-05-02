@@ -9,10 +9,19 @@ public class CameraScript : MonoBehaviour
     [SerializeField]
     private GameObject Hud;
     private UI uiScript;
+    [SerializeField]
+    private GameObject GameOverScreen;
+    [SerializeField]
+    private GameObject VictoryScreen;
+
+
     public GameObject tower;
     private int money = 200;
     public int cost = 100;
+    public int healthPoints = 10;
 
+    public int enemyNum;
+    public int enemyNumForFirstScene = 10;
 
     [SerializeField]
     private Tilemap tilemap;
@@ -23,9 +32,15 @@ public class CameraScript : MonoBehaviour
     [SerializeField]
     private float scrollSpeed = 20f;
 
+
     private void Start()
     {
         uiScript = Hud.GetComponent<UI>();
+        uiScript.SetMoneyText(money);
+        uiScript.SetHealthPoints(healthPoints);
+        uiScript.SetEnemyLeft(enemyNum);
+
+        enemyNum = enemyNumForFirstScene;
     }
 
     void Update()
@@ -37,6 +52,42 @@ public class CameraScript : MonoBehaviour
             SpawnOnClick();
         }
 
+        if (healthPoints <= 0)
+        {
+            CheckGameOver();
+        }
+        else
+        {
+            CheckVictory();
+        }
+
+    }
+
+    public void DealDamage(int damage)
+    {
+        healthPoints -= damage;
+        uiScript.SetHealthPoints(healthPoints);
+    }
+
+    private void CheckGameOver()
+    {
+        if (healthPoints <= 0)
+        {
+            Time.timeScale = 0;
+            Hud.SetActive(false);
+            GameOverScreen.SetActive(true);
+        }
+    }
+
+    private void CheckVictory()
+    {
+        if (MapGlobalFields.allEnemies.Count == 0 && enemyNum == 0)
+        {
+            Time.timeScale = 0;
+            Hud.SetActive(false);
+            VictoryScreen.SetActive(true);
+
+        }
     }
 
     private void SpawnOnClick()
@@ -59,7 +110,7 @@ public class CameraScript : MonoBehaviour
     public void ChangeMoney(int moneyDelta)
     {
         money += moneyDelta;
-        uiScript.UpdateMoneyText(money);
+        uiScript.SetMoneyText(money);
     }
 
     private void CheckEdgeMovement()

@@ -12,14 +12,19 @@ public class EnemySpawn : MonoBehaviour
     private float respawnTimer;
     [SerializeField]
     private float spawnDecrease = 0.1f;
+
+    private CameraScript cameraScript;
+
     void Start()
     {
+        cameraScript = Camera.main.GetComponent<CameraScript>();
         StartCoroutine(SpawnEnemy(enemy, respawnTimer));
     }
 
     private IEnumerator SpawnEnemy(GameObject enemy, float respawnTimer)
     {
         var newEnemy = Instantiate(enemy);
+        cameraScript.enemyNum--;
         var newEnemyScript = newEnemy.GetComponent<BasicEnemy>();
         newEnemyScript.path = path;
         MapGlobalFields.allEnemies.Add(newEnemy);
@@ -27,6 +32,7 @@ public class EnemySpawn : MonoBehaviour
         yield return new WaitForSeconds(respawnTimer);
         if (respawnTimer > 0.5f)
             respawnTimer -= spawnDecrease;
-        StartCoroutine(SpawnEnemy(enemy, respawnTimer));
+        if (cameraScript.enemyNum > 0)
+            StartCoroutine(SpawnEnemy(enemy, respawnTimer));
     }
 }

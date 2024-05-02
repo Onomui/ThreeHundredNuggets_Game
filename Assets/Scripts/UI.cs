@@ -22,6 +22,8 @@ public class UI : MonoBehaviour
     private CameraScript cameraScript;
     private Label moneyText;
     private VisualElement pic;
+    private Label healthPoints;
+    private Label enemyLeft;
     private void OnEnable()
     {
         cameraScript = Camera.main.GetComponent<CameraScript>();
@@ -32,6 +34,8 @@ public class UI : MonoBehaviour
         var buttonCake = root.Q<Button>("ButtonCake");
         moneyText = root.Q<Label>("Money");
         pic = root.Q<VisualElement>("PicContainer");
+        healthPoints = root.Q<Label>("HealthPoints");
+        enemyLeft = root.Q<Label>("enemyLeft");
 
         buttonBurger.clicked += ButtonBurger_clicked;
         buttonCola.clicked += ButtonCola_clicked;
@@ -59,8 +63,16 @@ public class UI : MonoBehaviour
         cameraScript.cost = cost;
         pic.style.backgroundImage = new StyleBackground(sprite);
     }
-    public void UpdateMoneyText(int curMoney)
+    public void SetMoneyText(int curMoney)
     {
         moneyText.text = curMoney.ToString();
+    }
+    public void SetHealthPoints(int curHealth)
+    {
+        healthPoints.text = curHealth.ToString();
+    }
+    public void SetEnemyLeft(int enemyLeftNum)
+    {
+        enemyLeft.text = enemyLeftNum.ToString();
     }
 }

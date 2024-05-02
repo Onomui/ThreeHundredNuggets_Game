@@ -1,0 +1,14 @@
+.gameover-button {
+    background-color: rgb(32, 32, 32);
+    color: rgb(255, 255, 255);
+}
+
+.gameover-button:hover {
+    background-color: rgb(175, 180, 130);
+    color: rgb(0, 0, 0);
+}
+
+.gameover-button:active {
+    background-color: rgb(254, 255, 138);
+    color: rgb(0, 0, 0);
+}

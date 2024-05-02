@@ -18,3 +18,21 @@
     font-size: 24px;
     color: rgb(255, 255, 255);
 }
+
+.text {
+    -unity-font: url('project://database/Assets/UI%20Toolkit/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=4a18caf36647d23409d3b95dfe1ce90a&type=3#NotInter-Regular');
+    -unity-font-style: bold;
+    font-size: 57px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(88, 88, 88);
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    -unity-text-outline-color: rgba(0, 0, 0, 0);
+    -unity-text-align: upper-center;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+    border-bottom-left-radius: 14px;
+}

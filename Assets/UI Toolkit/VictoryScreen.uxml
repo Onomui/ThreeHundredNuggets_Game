@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/victory-screen.uss?fileID=7433441132597879392&amp;guid=9e81f95204deb964c8f905fe467a19cb&amp;type=3#victory-screen" />
+    <ui:VisualElement style="flex-grow: 1; align-items: center; justify-content: center;">
+        <ui:VisualElement name="VisualElement" style="flex-grow: 0; width: 50%; height: 50%; background-color: rgba(86, 39, 19, 0.59); align-self: auto; align-items: center; justify-content: space-around;">
+            <ui:Label tabindex="-1" text="Уровень пройден!" parse-escape-sequences="true" display-tooltip-when-elided="true" class="victory-label" style="margin-top: 28px;" />
+            <ui:Button text="Следующий уровень" parse-escape-sequences="true" display-tooltip-when-elided="true" name="nextLevel" class="next-level-button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
