@@ -900,9 +900,9 @@ MonoBehaviour:
   VictoryScreen: {fileID: 1256005663}
   tower: {fileID: 6737043931232854861, guid: d98612976df690a4090b31091cf91640, type: 3}
   cost: 100
-  healthPoints: 10
+  healthPoints: 1
   enemyNum: 0
-  enemyNumForFirstScene: 10
+  enemyNumForFirstScene: 1
   tilemap: {fileID: 95585413}
   moveAmount: 12
   scrollSpeed: 20
@@ -21609,7 +21609,7 @@ Transform:
   m_GameObject: {fileID: 2113719699}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.94, y: 3.66, z: 0}
+  m_LocalPosition: {x: -5.24, y: -2.11, z: 0}
   m_LocalScale: {x: 0.488, y: 0.488, z: 0.488}
   m_ConstrainProportionsScale: 0
   m_Children: []

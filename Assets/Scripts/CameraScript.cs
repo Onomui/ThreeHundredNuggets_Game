@@ -35,16 +35,18 @@ public class CameraScript : MonoBehaviour
 
     private void Start()
     {
+        enemyNum = enemyNumForFirstScene;
+
         uiScript = Hud.GetComponent<UI>();
         uiScript.SetMoneyText(money);
         uiScript.SetHealthPoints(healthPoints);
         uiScript.SetEnemyLeft(enemyNum);
 
-        enemyNum = enemyNumForFirstScene;
     }
 
     void Update()
     {
+        uiScript.SetEnemyLeft(enemyNum);
         CheckEdgeMovement();
         CheckZoom();
         if (Input.GetMouseButtonDown(0))
@@ -86,7 +88,6 @@ public class CameraScript : MonoBehaviour
             Time.timeScale = 0;
             Hud.SetActive(false);
             VictoryScreen.SetActive(true);
-
         }
     }
 

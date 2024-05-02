@@ -15,7 +15,7 @@
         </ui:VisualElement>
         <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
             <ui:VisualElement style="flex-grow: 0; align-items: center; width: 9%;">
-                <ui:Label tabindex="-1" text="10" parse-escape-sequences="true" display-tooltip-when-elided="true" name="enemyLeft" class="text" style="margin-top: 23px; background-color: rgb(70, 53, 76); align-self: auto;" />
+                <ui:Label tabindex="-1" text="10" parse-escape-sequences="true" display-tooltip-when-elided="true" name="enemyLeft" class="text" style="margin-top: 23px; background-color: rgb(70, 53, 76); align-self: auto; -unity-font-definition: initial; -unity-font: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=729398ea2006b5845a6f0d4f87de7971&amp;type=3#NotInter-Regular&apos;);" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
