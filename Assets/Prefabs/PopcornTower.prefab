@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5423631174040901247}
   - component: {fileID: 4720152042411681363}
   m_Layer: 0
-  m_Name: StarTower
+  m_Name: PopcornTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

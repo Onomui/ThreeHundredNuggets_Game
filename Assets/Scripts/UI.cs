@@ -18,6 +18,14 @@ public class UI : MonoBehaviour
     private GameObject colaTower;
     [SerializeField]
     private Sprite colaTowerSprite;
+    [SerializeField]
+    private GameObject popcornTower;
+    [SerializeField]
+    private Sprite popcornTowerSprite;
+    [SerializeField]
+    private GameObject farmTower;
+    [SerializeField]
+    private Sprite farmTowerSprite;
 
     private CameraScript cameraScript;
     private Label moneyText;
@@ -32,6 +40,9 @@ public class UI : MonoBehaviour
         var buttonBurger = root.Q<Button>("ButtonBurger");
         var buttonCola = root.Q<Button>("ButtonCola");
         var buttonCake = root.Q<Button>("ButtonCake");
+        var buttonPopcorn = root.Q<Button>("ButtonPopcorn");
+        var buttonFarm = root.Q<Button>("ButtonFarm");
+
         moneyText = root.Q<Label>("Money");
         pic = root.Q<VisualElement>("PicContainer");
         healthPoints = root.Q<Label>("HealthPoints");
@@ -40,6 +51,18 @@ public class UI : MonoBehaviour
         buttonBurger.clicked += ButtonBurger_clicked;
         buttonCola.clicked += ButtonCola_clicked;
         buttonCake.clicked += ButtonCake_clicked;
+        buttonPopcorn.clicked += ButtonPopcorn_clicked;
+        buttonFarm.clicked += ButtonFarm_clicked;
+    }
+
+    private void ButtonFarm_clicked()
+    {
+        Button_clicked(farmTower, 100, farmTowerSprite);
+    }
+
+    private void ButtonPopcorn_clicked()
+    {
+        Button_clicked(popcornTower, 200, popcornTowerSprite);
     }
 
     private void ButtonBurger_clicked()
@@ -54,7 +77,7 @@ public class UI : MonoBehaviour
 
     private void ButtonCake_clicked()
     {
-        Button_clicked(cakeTower, 150, cakeTowerSprite);
+        Button_clicked(cakeTower, 300, cakeTowerSprite);
     }
 
     private void Button_clicked(GameObject tower, int cost, Sprite sprite)

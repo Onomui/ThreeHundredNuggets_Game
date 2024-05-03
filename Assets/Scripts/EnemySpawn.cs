@@ -5,20 +5,25 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     [SerializeField]
-    private GameObject enemy;
+    private GameObject basicEnemy;
+    [SerializeField]
+    private GameObject speedEnemy;
+    [SerializeField]
+    private GameObject bossEnemy;
     [SerializeField]
     private Transform[] path;
     [SerializeField]
     private float respawnTimer;
     [SerializeField]
     private float spawnDecrease = 0.1f;
+    [SerializeField]
+    private float spawnTimeLimit = 0.5f;
 
     private CameraScript cameraScript;
-
     void Start()
     {
         cameraScript = Camera.main.GetComponent<CameraScript>();
-        StartCoroutine(SpawnEnemy(enemy, respawnTimer));
+        StartCoroutine(SpawnEnemy(basicEnemy, respawnTimer));
     }
 
     private IEnumerator SpawnEnemy(GameObject enemy, float respawnTimer)
@@ -30,9 +35,22 @@ public class EnemySpawn : MonoBehaviour
         MapGlobalFields.allEnemies.Add(newEnemy);
 
         yield return new WaitForSeconds(respawnTimer);
-        if (respawnTimer > 0.5f)
+        if (respawnTimer > spawnTimeLimit)
             respawnTimer -= spawnDecrease;
         if (cameraScript.enemyNum > 0)
-            StartCoroutine(SpawnEnemy(enemy, respawnTimer));
+            StartCoroutine(SpawnEnemy(ChooseEnemyRandomly(), respawnTimer));
+    }
+
+    private GameObject ChooseEnemyRandomly()
+    {
+        var i = Random.Range(0, 100);
+        switch (i)
+        {
+            case < 50:
+                return basicEnemy;
+            case < 90:
+                return speedEnemy;
+            default: return bossEnemy;
+        }
     }
 }

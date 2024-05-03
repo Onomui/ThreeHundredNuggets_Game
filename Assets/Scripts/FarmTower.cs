@@ -20,8 +20,8 @@ public class FarmTower : MonoBehaviour
 
     IEnumerator AddMoney()
     {
-        yield return new WaitForSeconds(5);
-        cam.ChangeMoney(10);
+        yield return new WaitForSeconds(coolDown);
+        cam.ChangeMoney(changeMoney);
         StartCoroutine(AddMoney());
     }
 }

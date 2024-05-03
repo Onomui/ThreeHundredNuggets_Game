@@ -720,6 +720,10 @@ MonoBehaviour:
   cakeTowerSprite: {fileID: 21300000, guid: 993db40465b57854d8412c4327e91c1b, type: 3}
   colaTower: {fileID: 6737043931232854861, guid: 6f92d4f044b610042b14b3cb5a1abbcc, type: 3}
   colaTowerSprite: {fileID: 21300000, guid: 0a620010ace826f4b9ae5df6b6434777, type: 3}
+  popcornTower: {fileID: 6737043931232854861, guid: 782652b43a59d994c9c456cac5912aba, type: 3}
+  popcornTowerSprite: {fileID: 21300000, guid: 58f4472cc359e654590474b534711d4f, type: 3}
+  farmTower: {fileID: 6737043931232854861, guid: c33c67a9813f77e418b7aa9aa43547e0, type: 3}
+  farmTowerSprite: {fileID: 21300000, guid: 34bd8d369442c0d41a50c8971034e6a2, type: 3}
 --- !u!1001 &509118077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -900,9 +904,9 @@ MonoBehaviour:
   VictoryScreen: {fileID: 1256005663}
   tower: {fileID: 6737043931232854861, guid: d98612976df690a4090b31091cf91640, type: 3}
   cost: 100
-  healthPoints: 10
+  healthPoints: 100
   enemyNum: 0
-  enemyNumForFirstScene: 10
+  enemyNumForFirstScene: 100
   tilemap: {fileID: 95585413}
   moveAmount: 12
   scrollSpeed: 20
@@ -1063,7 +1067,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4917f33fea18044bb048e62322f5563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 6866544896402323360, guid: e8762444807f42649a5000234fc3b252, type: 3}
+  basicEnemy: {fileID: 6866544896402323360, guid: e8762444807f42649a5000234fc3b252, type: 3}
+  speedEnemy: {fileID: 6866544896402323360, guid: 3c161ad44ad6023498cfd3d4d3498846, type: 3}
+  bossEnemy: {fileID: 6866544896402323360, guid: fc7cd3f1d7915d5448e51c3c0a2f771b, type: 3}
   path:
   - {fileID: 1099924319}
   - {fileID: 106468958}
@@ -1082,8 +1088,9 @@ MonoBehaviour:
   - {fileID: 1287937340}
   - {fileID: 1446241552}
   - {fileID: 164666462}
-  respawnTimer: 4
-  spawnDecrease: 0.1
+  respawnTimer: 2
+  spawnDecrease: 0.05
+  spawnTimeLimit: 0.5
 --- !u!4 &837609931 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5455108377793712902, guid: 3911d9c2c38194b4db399893109c9250, type: 3}
@@ -1436,63 +1443,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5455108377793712902, guid: 3911d9c2c38194b4db399893109c9250, type: 3}
   m_PrefabInstance: {fileID: 1287937339}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1290801000
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6737043931232854861, guid: 782652b43a59d994c9c456cac5912aba, type: 3}
-      propertyPath: m_Name
-      value: StarTower
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932443313269866177, guid: 782652b43a59d994c9c456cac5912aba, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.91
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932443313269866177, guid: 782652b43a59d994c9c456cac5912aba, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.58
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932443313269866177, guid: 782652b43a59d994c9c456cac5912aba, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932443313269866177, guid: 782652b43a59d994c9c456cac5912aba, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932443313269866177, guid: 782652b43a59d994c9c456cac5912aba, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932443313269866177, guid: 782652b43a59d994c9c456cac5912aba, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932443313269866177, guid: 782652b43a59d994c9c456cac5912aba, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932443313269866177, guid: 782652b43a59d994c9c456cac5912aba, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932443313269866177, guid: 782652b43a59d994c9c456cac5912aba, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7932443313269866177, guid: 782652b43a59d994c9c456cac5912aba, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 782652b43a59d994c9c456cac5912aba, type: 3}
 --- !u!4 &1301166359 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5455108377793712902, guid: 3911d9c2c38194b4db399893109c9250, type: 3}
@@ -22196,4 +22146,3 @@ SceneRoots:
   - {fileID: 2113719702}
   - {fileID: 1593992345}
   - {fileID: 1256005666}
-  - {fileID: 1290801000}

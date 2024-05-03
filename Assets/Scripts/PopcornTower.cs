@@ -10,9 +10,6 @@ public class PopcornTower : MonoBehaviour
     [SerializeField]
     private float fireRate = 1f;
     private float currentCooldown;
-    private bool isLocked;
-    private Vector2 vectorToTarget;
-    private float radius = 7;
     void Start()
     {
         currentCooldown = fireRate;
