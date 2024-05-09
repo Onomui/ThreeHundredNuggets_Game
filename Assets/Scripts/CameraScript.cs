@@ -13,12 +13,13 @@ public class CameraScript : MonoBehaviour
     private GameObject GameOverScreen;
     [SerializeField]
     private GameObject VictoryScreen;
-
+    
 
     public GameObject tower;
     private int money = 200;
     public int cost = 100;
     public int healthPoints = 10;
+    private bool dead = false;
 
     public int enemyNum;
     public int enemyNumForFirstScene = 10;
@@ -32,7 +33,9 @@ public class CameraScript : MonoBehaviour
     [SerializeField]
     private float scrollSpeed = 20f;
 
-
+    [SerializeField]
+    private GameObject soundManagerObject;
+    private SoundManager soundManager;
     private void Start()
     {
         enemyNum = enemyNumForFirstScene;
@@ -42,6 +45,7 @@ public class CameraScript : MonoBehaviour
         uiScript.SetHealthPoints(healthPoints);
         uiScript.SetEnemyLeft(enemyNum);
 
+        soundManager = soundManagerObject.GetComponent<SoundManager>();
     }
 
     void Update()
@@ -54,7 +58,7 @@ public class CameraScript : MonoBehaviour
             SpawnOnClick();
         }
 
-        if (healthPoints <= 0)
+        if (healthPoints <= 0 && !dead)
         {
             CheckGameOver();
         }
@@ -75,6 +79,8 @@ public class CameraScript : MonoBehaviour
     {
         if (healthPoints <= 0)
         {
+            dead = true;
+            soundManager.PlayGameOver();
             Time.timeScale = 0;
             Hud.SetActive(false);
             GameOverScreen.SetActive(true);
@@ -103,6 +109,8 @@ public class CameraScript : MonoBehaviour
             || money < cost)
             return;
         MapGlobalFields.lockedCell[cellPos.y + 3, cellPos.x + 5] = 1;
+
+        soundManager.PlayTowerSpawn();
 
         Instantiate(tower, tilemap.GetCellCenterWorld(cellPos), Quaternion.identity);
         ChangeMoney(-cost);

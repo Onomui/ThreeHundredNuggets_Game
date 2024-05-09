@@ -22,8 +22,7 @@ public class ColaBullet : MonoBehaviour
     if (collision.tag == "Enemy")
         {
             var enemy = collision.GetComponent<BasicEnemy>();
-            enemy.StopMovement(stopMovement);
-            enemy.ChangeSprite();
+            enemy.Freeze(2);
             Destroy(gameObject);
         }
     }

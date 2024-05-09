@@ -8,8 +8,7 @@ public class BasicEnemy : MonoBehaviour
     public Transform[] path;
     [SerializeField]
     private float speed;
-    [SerializeField]
-    private Sprite frozenEnemy;
+    private bool freezed = false;
     [SerializeField]
     private int moneyDrop = 10;
     private SpriteRenderer spriteRenderer;
@@ -19,7 +18,7 @@ public class BasicEnemy : MonoBehaviour
     private float stopTimer = 0f;
     private Animator animator;
 
-    public int Health = 3;
+    private int Health = 3;
     public int Damage = 1;
     void Start()
     {
@@ -31,16 +30,6 @@ public class BasicEnemy : MonoBehaviour
 
     void Update()
     {
-        if (isStopped)
-        {
-            stopTimer += Time.deltaTime;
-            if (stopTimer >= stopDuration)
-            {
-                isStopped = false;
-                animator.enabled = true;
-            }
-        }
-
         CheckDeath();
     }
     private void FixedUpdate()
@@ -48,22 +37,6 @@ public class BasicEnemy : MonoBehaviour
         if (!isStopped)
         {
             MoveOnPath();
-        }
-    }
-
-    public void StopMovement(float duration)
-    {
-        isStopped = true;
-        stopDuration = duration;
-        stopTimer = 0f;
-    }
-
-    public void ChangeSprite()
-    {
-        if (frozenEnemy != null)
-        {
-            animator.enabled = false;
-            spriteRenderer.sprite = frozenEnemy;
         }
     }
 
@@ -77,6 +50,38 @@ public class BasicEnemy : MonoBehaviour
             if (transform.position == path[curPathPoint].position)
                 curPathPoint++;
         }
+    }
+
+    public void DoDamage(int damage)
+    {
+        Health -= damage;
+        if (!freezed)
+        {
+            spriteRenderer.color = Color.red;
+            StartCoroutine(RestoreColor());
+        }
+    }
+
+    public void Freeze(float duration)
+    {
+        freezed = true;
+        speed /= 2;
+        spriteRenderer.color = Color.blue;
+        StartCoroutine(RestoreSpeed(duration));
+    }
+
+    private IEnumerator RestoreColor()
+    {
+        yield return new WaitForSeconds(0.2f);
+        spriteRenderer.color = Color.white;
+    }
+
+    private IEnumerator RestoreSpeed(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        spriteRenderer.color = Color.white;
+        speed *= 2;
+        freezed = false;
     }
 
     private void CheckDeath()

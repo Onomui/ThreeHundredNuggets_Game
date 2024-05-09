@@ -180,8 +180,7 @@ MonoBehaviour:
   speed: 1
   frozenEnemy: {fileID: 21300000, guid: 8ae2a424568328c4d8a12e171c631e3f, type: 3}
   moneyDrop: 100
-  Health: 25
-  Damage: 100
+  Damage: 50
 --- !u!95 &-8313396355779516068
 Animator:
   serializedVersion: 5

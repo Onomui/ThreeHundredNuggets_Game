@@ -28,7 +28,7 @@
                     <ui:Label tabindex="-1" text="250" parse-escape-sequences="true" display-tooltip-when-elided="true" class="tower-text" />
                 </ui:VisualElement>
                 <ui:VisualElement class="tower-article">
-                    <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="ButtonFarm" class="tower-button" style="background-image: url(&apos;project://database/Assets/Sprites/photo2pixel_download.png?fileID=21300000&amp;guid=34bd8d369442c0d41a50c8971034e6a2&amp;type=3#photo2pixel_download&apos;);" />
+                    <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="ButtonFarm" class="tower-button" style="background-image: url(&apos;project://database/Assets/Sprites/acetone-202452-232419-643.png?fileID=21300000&amp;guid=70c0e04b5084dab498a13d5150ee233b&amp;type=3#acetone-202452-232419-643&apos;); -unity-background-scale-mode: scale-to-fit;" />
                     <ui:Label tabindex="-1" text="150" parse-escape-sequences="true" display-tooltip-when-elided="true" class="tower-text" />
                 </ui:VisualElement>
             </ui:VisualElement>

@@ -42,7 +42,7 @@ public class SplashBulletMovement : MonoBehaviour
     {  
         if (collision.tag == "Enemy" && !injured.Contains(collision.gameObject)) 
         {
-                collision.GetComponent<BasicEnemy>().Health -= damage;
+                collision.GetComponent<BasicEnemy>().DoDamage(damage);
                 injured.Add(collision.gameObject);
         }
     }

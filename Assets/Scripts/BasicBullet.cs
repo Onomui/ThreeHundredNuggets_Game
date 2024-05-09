@@ -24,7 +24,7 @@ public class BasicBullet : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            collision.GetComponent<BasicEnemy>().Health -= damage;
+            collision.GetComponent<BasicEnemy>().DoDamage(damage);
         }
         Destroy(gameObject);
     }
