@@ -49,6 +49,7 @@ public class UI : MonoBehaviour
         enemyLeft = root.Q<Label>("enemyLeft");
 
         buttonBurger.clicked += ButtonBurger_clicked;
+        
         buttonCola.clicked += ButtonCola_clicked;
         buttonCake.clicked += ButtonCake_clicked;
         buttonPopcorn.clicked += ButtonPopcorn_clicked;

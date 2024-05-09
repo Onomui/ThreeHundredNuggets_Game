@@ -1,0 +1,37 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/newHudStyle.uss?fileID=7433441132597879392&amp;guid=40049ec6e2a97f340bc0919b4fe7eab0&amp;type=3#newHudStyle" />
+    <ui:VisualElement style="flex-grow: 1; justify-content: space-between;">
+        <ui:VisualElement name="VisualElement" style="flex-grow: 0; height: 9%; flex-direction: row; justify-content: flex-end;">
+            <ui:VisualElement style="flex-grow: 0; width: 23%; flex-direction: row-reverse; margin-right: 25px; justify-content: space-around;">
+                <ui:Label tabindex="-1" text="100" parse-escape-sequences="true" display-tooltip-when-elided="true" name="HealthPoints" class="stat-text" style="background-color: rgb(147, 6, 6);" />
+                <ui:Label tabindex="-1" text="100" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Money" class="stat-text" style="background-color: rgb(43, 105, 56);" />
+                <ui:Label tabindex="-1" text="100" parse-escape-sequences="true" display-tooltip-when-elided="true" name="enemyLeft" class="stat-text" style="background-color: rgb(72, 36, 67);" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="PicContainer" style="flex-grow: 0; align-self: flex-end; width: 9%; height: 27%; background-color: rgba(0, 0, 0, 0.23); background-image: none; -unity-background-scale-mode: scale-and-crop;" />
+        <ui:VisualElement name="VisualElement" style="flex-grow: 0; height: 19%;">
+            <ui:VisualElement style="flex-grow: 1; flex-direction: row; justify-content: space-between; margin-left: 25px; margin-right: 25px;">
+                <ui:VisualElement name="VisualElement" class="tower-article">
+                    <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="ButtonBurger" class="tower-button" style="background-image: url(&apos;project://database/Assets/Sprites/pngegg.png?fileID=21300000&amp;guid=54ffc635a57622e4d809146cd7d76523&amp;type=3#pngegg&apos;);" />
+                    <ui:Label tabindex="-1" text="100" parse-escape-sequences="true" display-tooltip-when-elided="true" class="tower-text" />
+                </ui:VisualElement>
+                <ui:VisualElement name="VisualElement" class="tower-article">
+                    <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="ButtonCola" class="tower-button" style="background-image: url(&apos;project://database/Assets/Sprites/cola.png?fileID=21300000&amp;guid=4fb5004933a09d1478bdd74473529552&amp;type=3#cola&apos;);" />
+                    <ui:Label tabindex="-1" text="75" parse-escape-sequences="true" display-tooltip-when-elided="true" class="tower-text" />
+                </ui:VisualElement>
+                <ui:VisualElement class="tower-article">
+                    <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="ButtonCake" class="tower-button" style="background-image: url(&apos;project://database/Assets/Sprites/CakeBullet.png?fileID=21300000&amp;guid=116b57d69898cdf44b5bfc9dc9fa7079&amp;type=3#CakeBullet&apos;);" />
+                    <ui:Label tabindex="-1" text="500" parse-escape-sequences="true" display-tooltip-when-elided="true" class="tower-text" />
+                </ui:VisualElement>
+                <ui:VisualElement class="tower-article">
+                    <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="ButtonPopcorn" class="tower-button" style="background-image: url(&apos;project://database/Assets/Sprites/PopCornTower.png?fileID=21300000&amp;guid=58f4472cc359e654590474b534711d4f&amp;type=3#PopCornTower&apos;);" />
+                    <ui:Label tabindex="-1" text="250" parse-escape-sequences="true" display-tooltip-when-elided="true" class="tower-text" />
+                </ui:VisualElement>
+                <ui:VisualElement class="tower-article">
+                    <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="ButtonFarm" class="tower-button" style="background-image: url(&apos;project://database/Assets/Sprites/photo2pixel_download.png?fileID=21300000&amp;guid=34bd8d369442c0d41a50c8971034e6a2&amp;type=3#photo2pixel_download&apos;);" />
+                    <ui:Label tabindex="-1" text="150" parse-escape-sequences="true" display-tooltip-when-elided="true" class="tower-text" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
