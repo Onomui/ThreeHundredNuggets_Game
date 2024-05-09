@@ -11,6 +11,8 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField]
     private GameObject bossEnemy;
     [SerializeField]
+    private GameObject superBossEnemy;
+    [SerializeField]
     private Transform[] path;
     [SerializeField]
     private float respawnTimer;
@@ -43,13 +45,15 @@ public class EnemySpawn : MonoBehaviour
 
     private GameObject ChooseEnemyRandomly()
     {
-        var i = Random.Range(0, 100);
+        var i = Random.Range(0, 101);
         switch (i)
         {
             case < 50:
                 return basicEnemy;
             case < 90:
                 return speedEnemy;
+            case 100:
+                return superBossEnemy;
             default: return bossEnemy;
         }
     }

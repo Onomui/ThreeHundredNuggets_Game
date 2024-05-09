@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1797093661752877997}
   - component: {fileID: 478173735129835874}
   - component: {fileID: 1999799885226889272}
-  - component: {fileID: 7269372578019874015}
+  - component: {fileID: -5379115362877569069}
   m_Layer: 0
-  m_Name: StrongEnemy
+  m_Name: EGOR
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,12 +77,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9d7bf49736dc71a49b354f9a05808bff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f3bb7a062920d4741a11fd381082b300, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 12.9, y: 17.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -177,12 +177,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  speed: 2
-  frozenEnemy: {fileID: 21300000, guid: 2515275f29acf6e4fac09456593f47eb, type: 3}
-  moneyDrop: 30
-  Health: 10
-  Damage: 10
---- !u!95 &7269372578019874015
+  speed: 0.52
+  frozenEnemy: {fileID: 21300000, guid: c7f28a8d5a0c86a4895b124e7c758ef6, type: 3}
+  moneyDrop: 9999
+  Health: 100
+  Damage: 10000
+--- !u!95 &-5379115362877569069
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -192,7 +192,7 @@ Animator:
   m_GameObject: {fileID: 6866544896402323360}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b190c8a7825416a4db317385302af984, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

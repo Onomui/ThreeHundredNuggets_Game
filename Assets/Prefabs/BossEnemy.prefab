@@ -178,7 +178,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   speed: 1
-  frozenEnemy: {fileID: 21300000, guid: 2515275f29acf6e4fac09456593f47eb, type: 3}
+  frozenEnemy: {fileID: 21300000, guid: 8ae2a424568328c4d8a12e171c631e3f, type: 3}
   moneyDrop: 100
   Health: 25
   Damage: 100
