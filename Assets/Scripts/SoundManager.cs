@@ -29,6 +29,7 @@ public class SoundManager : MonoBehaviour
         AudioSource audioSource = bgMusicPlayer.AddComponent<AudioSource>();
         bgMusic = audioSource;
         audioSource.loop = true;
+        audioSource.volume = 0.02f;
         audioSource.PlayOneShot(bgAudioClip);
     }
     public void PlayGameOver()
