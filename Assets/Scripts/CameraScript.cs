@@ -7,23 +7,15 @@ using UnityEngine.UIElements;
 
 public class CameraScript : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject Hud;
-    private UI uiScript;
-    [SerializeField]
-    private GameObject GameOverScreen;
-    [SerializeField]
-    private GameObject VictoryScreen;
-    
+    private UiUpdateManager uiUpdateManager;
 
     public GameObject tower;
-    private int money = 200;
+    public int money = 200;
     public int cost = 100;
     public int healthPoints = 10;
     private bool dead = false;
 
-    public int enemyNum;
-    public int enemyNumForFirstScene = 10;
+    public int enemyNum = 1;
 
     [SerializeField]
     private Tilemap tilemap;
@@ -38,27 +30,18 @@ public class CameraScript : MonoBehaviour
     private GameObject soundManagerObject;
     private SoundManager soundManager;
 
-    private MouseOverEvent mouseOverEvent;
     private void Start()
     {
-        enemyNum = enemyNumForFirstScene;
-
-        uiScript = Hud.GetComponent<UI>();
-        uiScript.SetMoneyText(money);
-        uiScript.UpdateHealthBar(healthPoints);
-        uiScript.SetEnemyLeft(enemyNum);
+        uiUpdateManager = GetComponent<UiUpdateManager>();
 
         soundManager = soundManagerObject.GetComponent<SoundManager>();
-        mouseOverEvent = new MouseOverEvent();
     }
 
     void Update()
     {
-        Debug.Log(mouseOverEvent.altKey);
-        uiScript.SetEnemyLeft(enemyNum);
         CheckEdgeMovement();
         CheckZoom();
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !uiUpdateManager.isOnButton)
         {
             SpawnOnClick();
         }
@@ -74,10 +57,22 @@ public class CameraScript : MonoBehaviour
 
     }
 
+    public void HandleEnemyDeath()
+    {
+        enemyNum--;
+        uiUpdateManager.EnemyNumUpdate(enemyNum);
+    }
+
     public void DealDamage(int damage)
     {
         healthPoints -= damage;
-        uiScript.UpdateHealthBar(healthPoints);
+        uiUpdateManager.HealthPointsUpdate(healthPoints);
+    }
+
+    public void ChangeMoney(int moneyDelta)
+    {
+        money += moneyDelta;
+        uiUpdateManager.MoneyUpdate(money);
     }
 
     private void CheckGameOver()
@@ -86,9 +81,7 @@ public class CameraScript : MonoBehaviour
         {
             dead = true;
             soundManager.PlayGameOver();
-            Time.timeScale = 0;
-            Hud.SetActive(false);
-            GameOverScreen.SetActive(true);
+            uiUpdateManager.ChangeScreen("gameover");
         }
     }
 
@@ -96,9 +89,7 @@ public class CameraScript : MonoBehaviour
     {
         if (MapGlobalFields.allEnemies.Count == 0 && enemyNum == 0)
         {
-            Time.timeScale = 0;
-            Hud.SetActive(false);
-            VictoryScreen.SetActive(true);
+            uiUpdateManager.ChangeScreen("victory");
         }
     }
 
@@ -119,12 +110,6 @@ public class CameraScript : MonoBehaviour
 
         Instantiate(tower, tilemap.GetCellCenterWorld(cellPos), Quaternion.identity);
         ChangeMoney(-cost);
-    }
-
-    public void ChangeMoney(int moneyDelta)
-    {
-        money += moneyDelta;
-        uiScript.SetMoneyText(money);
     }
 
     private void CheckEdgeMovement()

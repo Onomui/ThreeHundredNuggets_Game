@@ -77334,7 +77334,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &508031425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77387,7 +77387,7 @@ MonoBehaviour:
   popcornTower: {fileID: 6737043931232854861, guid: 782652b43a59d994c9c456cac5912aba, type: 3}
   popcornTowerSprite: {fileID: 21300000, guid: 58f4472cc359e654590474b534711d4f, type: 3}
   farmTower: {fileID: 6737043931232854861, guid: c33c67a9813f77e418b7aa9aa43547e0, type: 3}
-  farmTowerSprite: {fileID: 21300000, guid: 34bd8d369442c0d41a50c8971034e6a2, type: 3}
+  farmTowerSprite: {fileID: 21300000, guid: 70c0e04b5084dab498a13d5150ee233b, type: 3}
 --- !u!1001 &509118077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77474,6 +77474,8 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420035}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -77567,18 +77569,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c321663f6900a854a84d054a79b29bdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hud: {fileID: 508031424}
-  GameOverScreen: {fileID: 1593992342}
-  VictoryScreen: {fileID: 1256005663}
   tower: {fileID: 6737043931232854861, guid: d98612976df690a4090b31091cf91640, type: 3}
+  money: 200
   cost: 100
-  healthPoints: 100
-  enemyNum: 0
-  enemyNumForFirstScene: 100
+  healthPoints: 1
+  enemyNum: 1
   tilemap: {fileID: 95585413}
   moveAmount: 12
   scrollSpeed: 20
   soundManagerObject: {fileID: 2129955199}
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3544a6f84af0b146932f8d981d522f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DialogeScreen: {fileID: 1106272505}
+  Hud: {fileID: 508031424}
+  VictoryScreen: {fileID: 1256005663}
+  GameOverScreen: {fileID: 1593992342}
+--- !u!114 &519420035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 449670274e6df0c41a08e2d282aa49de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hud: {fileID: 508031424}
+  isOnButton: 0
 --- !u!1 &536741676
 GameObject:
   m_ObjectHideFlags: 0
@@ -80592,6 +80621,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5455108377793712902, guid: 3911d9c2c38194b4db399893109c9250, type: 3}
   m_PrefabInstance: {fileID: 1018496854}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1106272505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1106272507}
+  - component: {fileID: 1106272506}
+  - component: {fileID: 1106272508}
+  m_Layer: 0
+  m_Name: DialogueScreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1106272506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106272505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 682c7930f8587c544961c662bb9955b1, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 31608d49436be23468afd76d99fccc5f, type: 3}
+  m_SortingOrder: 0
+--- !u!4 &1106272507
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106272505}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.1001489, y: 1.566443, z: 0.1931031}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1106272508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106272505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d64c850f1f9bab64ca68dd1f33b93604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1175383808 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5455108377793712902, guid: 3911d9c2c38194b4db399893109c9250, type: 3}
@@ -81399,7 +81489,7 @@ Transform:
   m_GameObject: {fileID: 2113719699}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.9, y: 5.08, z: 0}
+  m_LocalPosition: {x: 6.05, y: 5.01, z: 0}
   m_LocalScale: {x: 0.488, y: 0.488, z: 0.488}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -81538,12 +81628,13 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 1106272507}
   - {fileID: 508031426}
-  - {fileID: 1759643190}
-  - {fileID: 635206521}
-  - {fileID: 1961723773}
-  - {fileID: 752093074}
-  - {fileID: 2113719702}
   - {fileID: 1593992345}
   - {fileID: 1256005666}
+  - {fileID: 1759643190}
+  - {fileID: 1961723773}
+  - {fileID: 635206521}
+  - {fileID: 752093074}
+  - {fileID: 2113719702}
   - {fileID: 2129955201}

@@ -92,6 +92,7 @@ public class BasicEnemy : MonoBehaviour
     public void KillEnemy()
     {
         MapGlobalFields.allEnemies.Remove(gameObject);
+        Camera.main.GetComponent<CameraScript>().HandleEnemyDeath();
         Destroy(gameObject);
     }
 }

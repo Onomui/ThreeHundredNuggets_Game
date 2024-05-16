@@ -23,17 +23,17 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField]
     private float gameSpeed = 1;
 
-    private CameraScript cameraScript;
+    private int enemyNumToSpawn;
     void Start()
     {
-        cameraScript = Camera.main.GetComponent<CameraScript>();
+        enemyNumToSpawn = Camera.main.GetComponent<CameraScript>().enemyNum;
         StartCoroutine(SpawnEnemy(basicEnemy, respawnTimer));
     }
 
     private IEnumerator SpawnEnemy(GameObject enemy, float respawnTimer)
     {
         var newEnemy = Instantiate(enemy);
-        cameraScript.enemyNum--;
+        enemyNumToSpawn--;
         var newEnemyScript = newEnemy.GetComponent<BasicEnemy>();
         newEnemyScript.path = path;
         MapGlobalFields.allEnemies.Add(newEnemy);
@@ -43,7 +43,7 @@ public class EnemySpawn : MonoBehaviour
         if (respawnTimer >= spawnTimeLimit)
             StartCoroutine(SpawnRateUp());
 
-        if (cameraScript.enemyNum > 0)
+        if (enemyNumToSpawn > 0)
             StartCoroutine(SpawnEnemy(ChooseEnemyRandomly(), respawnTimer));
     }
 

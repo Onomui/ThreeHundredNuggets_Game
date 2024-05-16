@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -33,8 +34,12 @@ public class UI : MonoBehaviour
     private Label healthPoints;
     private Label enemyLeft;
     private ProgressBar healthBar;
+    private Label description;
+
+    private UiUpdateManager uiUpdateManager;
     private void OnEnable()
     {
+        uiUpdateManager = Camera.main.GetComponent<UiUpdateManager>();
         cameraScript = Camera.main.GetComponent<CameraScript>();
         var root = GetComponent<UIDocument>().rootVisualElement;
 
@@ -49,13 +54,40 @@ public class UI : MonoBehaviour
         healthPoints = root.Q<Label>("HealthPoints");
         enemyLeft = root.Q<Label>("enemyLeft");
         healthBar = root.Q<ProgressBar>("healthBar");
+        description = root.Q<Label>("Description");
+
 
         buttonBurger.clicked += ButtonBurger_clicked;
-        healthBar.highValue = cameraScript.healthPoints;
+        buttonBurger.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("йоу! Крутая башня :)"); });
+        buttonBurger.RegisterCallback<MouseLeaveEvent>((type) => { HideDesctiption(); });
         buttonCola.clicked += ButtonCola_clicked;
+        buttonCola.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("Йооооу, тоже крутая башня!!"); });
+        buttonCola.RegisterCallback<MouseLeaveEvent>((type) => { HideDesctiption(); });
         buttonCake.clicked += ButtonCake_clicked;
+        buttonCake.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("Бомбовая башенка"); });
+        buttonCake.RegisterCallback<MouseLeaveEvent>((type) => { HideDesctiption(); });
         buttonPopcorn.clicked += ButtonPopcorn_clicked;
+        buttonPopcorn.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("Стреляет в форме + с небольшой дальностью"); });
+        buttonPopcorn.RegisterCallback<MouseLeaveEvent>((type) => { HideDesctiption(); });
         buttonFarm.clicked += ButtonFarm_clicked;
+        buttonFarm.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("Башня добывает деньги со временем"); });
+        buttonFarm.RegisterCallback<MouseLeaveEvent>((type) => { HideDesctiption(); });
+        healthBar.highValue = cameraScript.healthPoints;
+    }
+
+
+
+    private void ShowDescription(string text)
+    {
+        description.visible = true;
+        description.text = text;
+        uiUpdateManager.isOnButton = true;
+    }
+
+    private void HideDesctiption()
+    {
+        description.visible = false;
+        uiUpdateManager.isOnButton = false;
     }
 
     private void ButtonFarm_clicked()

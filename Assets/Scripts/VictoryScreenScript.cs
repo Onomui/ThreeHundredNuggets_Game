@@ -11,8 +11,8 @@ public class VictoryScreenScript : MonoBehaviour
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
 
-        var restartButton = root.Q<Button>("nextLevel");
-        restartButton.clicked += NextLevel_clicked;
+        var nextLevelButton = root.Q<Button>("nextLevel");
+        nextLevelButton.clicked += NextLevel_clicked;
     }
 
     private void NextLevel_clicked()
