@@ -20,6 +20,8 @@ public class EnemySpawn : MonoBehaviour
     private float spawnDecrease = 0.1f;
     [SerializeField]
     private float spawnTimeLimit = 0.5f;
+    [SerializeField]
+    private float gameSpeed = 1;
 
     private CameraScript cameraScript;
     void Start()
@@ -37,10 +39,18 @@ public class EnemySpawn : MonoBehaviour
         MapGlobalFields.allEnemies.Add(newEnemy);
 
         yield return new WaitForSeconds(respawnTimer);
-        if (respawnTimer > spawnTimeLimit)
-            respawnTimer -= spawnDecrease;
+
+        if (respawnTimer >= spawnTimeLimit)
+            StartCoroutine(SpawnRateUp());
+
         if (cameraScript.enemyNum > 0)
             StartCoroutine(SpawnEnemy(ChooseEnemyRandomly(), respawnTimer));
+    }
+
+    private IEnumerator SpawnRateUp()
+    {
+        yield return new WaitForSeconds(gameSpeed);
+        respawnTimer -= spawnDecrease;
     }
 
     private GameObject ChooseEnemyRandomly()

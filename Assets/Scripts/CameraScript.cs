@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UIElements;
 
 public class CameraScript : MonoBehaviour
 {
@@ -36,6 +37,8 @@ public class CameraScript : MonoBehaviour
     [SerializeField]
     private GameObject soundManagerObject;
     private SoundManager soundManager;
+
+    private MouseOverEvent mouseOverEvent;
     private void Start()
     {
         enemyNum = enemyNumForFirstScene;
@@ -46,10 +49,12 @@ public class CameraScript : MonoBehaviour
         uiScript.SetEnemyLeft(enemyNum);
 
         soundManager = soundManagerObject.GetComponent<SoundManager>();
+        mouseOverEvent = new MouseOverEvent();
     }
 
     void Update()
     {
+        Debug.Log(mouseOverEvent.altKey);
         uiScript.SetEnemyLeft(enemyNum);
         CheckEdgeMovement();
         CheckZoom();

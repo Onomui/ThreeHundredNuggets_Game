@@ -21,7 +21,7 @@
                 </ui:VisualElement>
                 <ui:VisualElement class="tower-article">
                     <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="ButtonCake" class="tower-button" style="background-image: url(&apos;project://database/Assets/Sprites/CakeBullet.png?fileID=21300000&amp;guid=116b57d69898cdf44b5bfc9dc9fa7079&amp;type=3#CakeBullet&apos;);" />
-                    <ui:Label tabindex="-1" text="500" parse-escape-sequences="true" display-tooltip-when-elided="true" class="tower-text" />
+                    <ui:Label tabindex="-1" text="400" parse-escape-sequences="true" display-tooltip-when-elided="true" class="tower-text" />
                 </ui:VisualElement>
                 <ui:VisualElement class="tower-article">
                     <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="ButtonPopcorn" class="tower-button" style="background-image: url(&apos;project://database/Assets/Sprites/PopCornTower.png?fileID=21300000&amp;guid=58f4472cc359e654590474b534711d4f&amp;type=3#PopCornTower&apos;);" />

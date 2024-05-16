@@ -9,7 +9,7 @@ public class ColaBullet : MonoBehaviour
     [SerializeField]
     private float bulletLifeTime = 3;
     [SerializeField]
-    private float stopMovement = 2f;
+    private float freezeTime = 2f;
 
     void FixedUpdate()
     {
@@ -22,7 +22,7 @@ public class ColaBullet : MonoBehaviour
     if (collision.tag == "Enemy")
         {
             var enemy = collision.GetComponent<BasicEnemy>();
-            enemy.Freeze(2);
+            enemy.Freeze(freezeTime);
             Destroy(gameObject);
         }
     }

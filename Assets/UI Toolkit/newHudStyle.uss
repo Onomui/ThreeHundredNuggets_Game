@@ -31,3 +31,6 @@
     height: auto;
     -unity-text-align: upper-center;
 }
+
+.tower-button:hover {
+}

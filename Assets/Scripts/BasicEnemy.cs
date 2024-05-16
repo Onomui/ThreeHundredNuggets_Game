@@ -14,17 +14,13 @@ public class BasicEnemy : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private int curPathPoint = 1;
     private bool isStopped = false;
-    private float stopDuration = 0f;
-    private float stopTimer = 0f;
-    private Animator animator;
 
-    private int Health = 3;
+    public int Health = 3;
     public int Damage = 1;
     void Start()
     {
         transform.position = path[0].position;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
     }
 
 
@@ -62,26 +58,26 @@ public class BasicEnemy : MonoBehaviour
         }
     }
 
-    public void Freeze(float duration)
-    {
-        freezed = true;
-        speed /= 2;
-        spriteRenderer.color = Color.blue;
-        StartCoroutine(RestoreSpeed(duration));
-    }
-
     private IEnumerator RestoreColor()
     {
         yield return new WaitForSeconds(0.2f);
         spriteRenderer.color = Color.white;
     }
 
+    public void Freeze(float duration)
+    {
+        freezed = true;
+        speed /= 2;
+        spriteRenderer.color =new Color(0.38f, 0.75f, 0.9f);
+        StartCoroutine(RestoreSpeed(duration));
+    }
+
     private IEnumerator RestoreSpeed(float duration)
     {
         yield return new WaitForSeconds(duration);
-        spriteRenderer.color = Color.white;
-        speed *= 2;
         freezed = false;
+        speed *= 2;
+        spriteRenderer.color = Color.white;
     }
 
     private void CheckDeath()
