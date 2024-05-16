@@ -45,7 +45,7 @@ public class CameraScript : MonoBehaviour
 
         uiScript = Hud.GetComponent<UI>();
         uiScript.SetMoneyText(money);
-        uiScript.SetHealthPoints(healthPoints);
+        uiScript.UpdateHealthBar(healthPoints);
         uiScript.SetEnemyLeft(enemyNum);
 
         soundManager = soundManagerObject.GetComponent<SoundManager>();
@@ -77,7 +77,7 @@ public class CameraScript : MonoBehaviour
     public void DealDamage(int damage)
     {
         healthPoints -= damage;
-        uiScript.SetHealthPoints(healthPoints);
+        uiScript.UpdateHealthBar(healthPoints);
     }
 
     private void CheckGameOver()

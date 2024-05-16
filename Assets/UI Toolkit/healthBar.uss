@@ -1,0 +1,7 @@
+.healthbar {
+    background-color: #333333;
+}
+
+.healthbarFill {
+    background-color: #00FF00;
+}

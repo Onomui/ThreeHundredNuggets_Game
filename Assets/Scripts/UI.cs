@@ -32,6 +32,7 @@ public class UI : MonoBehaviour
     private VisualElement pic;
     private Label healthPoints;
     private Label enemyLeft;
+    private ProgressBar healthBar;
     private void OnEnable()
     {
         cameraScript = Camera.main.GetComponent<CameraScript>();
@@ -47,9 +48,10 @@ public class UI : MonoBehaviour
         pic = root.Q<VisualElement>("PicContainer");
         healthPoints = root.Q<Label>("HealthPoints");
         enemyLeft = root.Q<Label>("enemyLeft");
+        healthBar = root.Q<ProgressBar>("healthBar");
 
         buttonBurger.clicked += ButtonBurger_clicked;
-        
+        healthBar.highValue = cameraScript.healthPoints;
         buttonCola.clicked += ButtonCola_clicked;
         buttonCake.clicked += ButtonCake_clicked;
         buttonPopcorn.clicked += ButtonPopcorn_clicked;
@@ -98,5 +100,11 @@ public class UI : MonoBehaviour
     public void SetEnemyLeft(int enemyLeftNum)
     {
         enemyLeft.text = enemyLeftNum.ToString();
+    }
+
+    public void UpdateHealthBar(int hp)
+    {
+        healthBar.title = hp.ToString();
+        healthBar.value = hp;
     }
 }

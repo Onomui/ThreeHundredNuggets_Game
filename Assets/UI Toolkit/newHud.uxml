@@ -1,11 +1,13 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/newHudStyle.uss?fileID=7433441132597879392&amp;guid=40049ec6e2a97f340bc0919b4fe7eab0&amp;type=3#newHudStyle" />
+    <Style src="project://database/Assets/UI%20Toolkit/healthBar.uss?fileID=7433441132597879392&amp;guid=845a830fc2b294c4980100e8e4190a1a&amp;type=3#healthBar" />
     <ui:VisualElement style="flex-grow: 1; justify-content: space-between;">
         <ui:VisualElement name="VisualElement" style="flex-grow: 0; height: 9%; flex-direction: row; justify-content: flex-end;">
             <ui:VisualElement style="flex-grow: 0; width: 23%; flex-direction: row-reverse; margin-right: 25px; justify-content: space-around;">
                 <ui:Label tabindex="-1" text="100" parse-escape-sequences="true" display-tooltip-when-elided="true" name="HealthPoints" class="stat-text" style="background-color: rgb(147, 6, 6);" />
                 <ui:Label tabindex="-1" text="100" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Money" class="stat-text" style="background-color: rgb(43, 105, 56);" />
                 <ui:Label tabindex="-1" text="100" parse-escape-sequences="true" display-tooltip-when-elided="true" name="enemyLeft" class="stat-text" style="background-color: rgb(72, 36, 67);" />
+                <ui:ProgressBar value="100" title="100" name="healthBar" high-value="0" tabindex="-1" style="position: absolute; top: 16px; left: -237px; height: 19px; width: 198px; background-color: rgb(147, 6, 6);" />
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="PicContainer" style="flex-grow: 0; align-self: flex-end; width: 9%; height: 27%; background-color: rgba(0, 0, 0, 0.23); background-image: none; -unity-background-scale-mode: scale-and-crop;" />
