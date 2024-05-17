@@ -77590,7 +77590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3544a6f84af0b146932f8d981d522f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogeScreen: {fileID: 1106272505}
+  DialogueScreen: {fileID: 1106272505}
   Hud: {fileID: 508031424}
   VictoryScreen: {fileID: 1256005663}
   GameOverScreen: {fileID: 1593992342}
@@ -77608,6 +77608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hud: {fileID: 508031424}
   isOnButton: 0
+  LevelNum: 1
 --- !u!1 &536741676
 GameObject:
   m_ObjectHideFlags: 0
@@ -80291,7 +80292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &635206521
 Transform:
   m_ObjectHideFlags: 0
@@ -80459,6 +80460,7 @@ MonoBehaviour:
   - {fileID: 1287937340}
   - {fileID: 1446241552}
   - {fileID: 164666462}
+  secondPath: []
   respawnTimer: 2
   spawnDecrease: 0.05
   spawnTimeLimit: 0.5
@@ -80682,6 +80684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d64c850f1f9bab64ca68dd1f33b93604, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelNum: 1
 --- !u!4 &1175383808 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5455108377793712902, guid: 3911d9c2c38194b4db399893109c9250, type: 3}

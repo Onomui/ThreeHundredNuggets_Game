@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class LevelTransition : MonoBehaviour
 {
-    [SerializeField] private GameObject DialogeScreen;
+    [SerializeField] private GameObject DialogueScreen;
     [SerializeField] private GameObject Hud;
     [SerializeField] private GameObject VictoryScreen;
     [SerializeField] private GameObject GameOverScreen;
     public void ChangeDialogueScreen()
     {
-        DialogeScreen.SetActive(true);
+        DialogueScreen.SetActive(true);
         Time.timeScale = 0;
     }
     public void ChangeVictoryScreen()
@@ -29,7 +29,7 @@ public class LevelTransition : MonoBehaviour
     public void ChangeHudScreen()
     {
         Time.timeScale = 1;
-        DialogeScreen.SetActive(false);
+        DialogueScreen.SetActive(false);
         Hud.SetActive(true);
     }
 }

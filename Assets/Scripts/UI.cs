@@ -73,6 +73,7 @@ public class UI : MonoBehaviour
         buttonFarm.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("Башня добывает деньги со временем"); });
         buttonFarm.RegisterCallback<MouseLeaveEvent>((type) => { HideDesctiption(); });
         healthBar.highValue = cameraScript.healthPoints;
+        healthBar.style.backgroundColor = Color.blue;
     }
 
 

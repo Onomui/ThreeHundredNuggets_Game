@@ -20,6 +20,8 @@ public class CameraScript : MonoBehaviour
     [SerializeField]
     private Tilemap tilemap;
 
+    public int LevelNum = 1; 
+
     [SerializeField]
     private float moveAmount = 2f;
     private Vector3 cameraMove;
@@ -99,17 +101,39 @@ public class CameraScript : MonoBehaviour
         clickPos.z = 0f;
 
         var cellPos = tilemap.WorldToCell(clickPos);
-        if (cellPos.y + 3 < 0 || cellPos.y + 3 > 4
-            || cellPos.x + 5 < 0 || cellPos.x + 5 > 9
-            || MapGlobalFields.lockedCell[cellPos.y + 3, cellPos.x + 5] == 1
-            || money < cost)
+        if (!PlaceOnGrid(cellPos))
             return;
-        MapGlobalFields.lockedCell[cellPos.y + 3, cellPos.x + 5] = 1;
-
         soundManager.PlayTowerSpawn();
 
         Instantiate(tower, tilemap.GetCellCenterWorld(cellPos), Quaternion.identity);
         ChangeMoney(-cost);
+    }
+
+    private bool PlaceOnGrid(Vector3Int cellPos)
+    {
+        if (LevelNum == 1)
+        {
+            if (cellPos.y + 3 < 0 || cellPos.y + 3 > 4
+           || cellPos.x + 5 < 0 || cellPos.x + 5 > 9
+           || MapGlobalFields.lockedCell[cellPos.y + 3, cellPos.x + 5] == 1
+           || money < cost)
+                return false;
+            MapGlobalFields.lockedCell[cellPos.y + 3, cellPos.x + 5] = 1;
+            return true;
+        }
+        if (LevelNum == 2)
+        {
+            Debug.Log(cellPos);
+            if (cellPos.y < -4 || cellPos.y > 1
+           || cellPos.x < -8 || cellPos.x > 8
+           || MapGlobalFields.lockedCell[cellPos.y + 4, cellPos.x + 8] == 1
+           || money < cost)
+                return false;
+            MapGlobalFields.lockedCell[cellPos.y + 4, cellPos.x + 8] = 1;
+            return true;
+        }
+        return false;
+
     }
 
     private void CheckEdgeMovement()

@@ -7,7 +7,7 @@ public class MapGlobalFields : MonoBehaviour
 {
     public static List<GameObject> allEnemies = new();
 
-    public static int[,] lockedCellExample = new int[5, 10]
+    public static int[,] lockedCellFirst = new int[5, 10]
     {
         {1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
         {0, 0, 0, 1, 0, 1, 1, 1, 1, 0},
@@ -15,12 +15,27 @@ public class MapGlobalFields : MonoBehaviour
         {0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     };
+
+    public static int[,] lockedCellSecond = new int[6, 17]
+    {
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+        {0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0 },
+        {1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0 },
+        {0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0 },
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 },
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 }
+    };
+    public static int[,] lockedCellLevel;
+    public int LevelNum = 1;
+
     public static int[,] lockedCell;
 
     private void Awake()
     {
+        var allMaps = new[] {lockedCellFirst,  lockedCellSecond};
+        lockedCellLevel = allMaps[LevelNum - 1];
         allEnemies.Clear();
-        lockedCell = DeepCopy<int>(lockedCellExample);
+        lockedCell = DeepCopy<int>(lockedCellLevel);
     }
 
     private static T[,] DeepCopy<T>(T[,] original)

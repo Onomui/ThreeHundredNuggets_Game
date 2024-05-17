@@ -18,7 +18,7 @@ public class VictoryScreenScript : MonoBehaviour
     private void NextLevel_clicked()
     {
         LoadScene();
-        Time.timeScale = 1;
+
     }
 
     private void LoadScene()

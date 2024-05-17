@@ -15,6 +15,11 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField]
     private Transform[] path;
     [SerializeField]
+    private Transform[] secondPath;
+
+    private int pathNum = 0;
+    
+    [SerializeField]
     private float respawnTimer;
     [SerializeField]
     private float spawnDecrease = 0.1f;
@@ -35,7 +40,7 @@ public class EnemySpawn : MonoBehaviour
         var newEnemy = Instantiate(enemy);
         enemyNumToSpawn--;
         var newEnemyScript = newEnemy.GetComponent<BasicEnemy>();
-        newEnemyScript.path = path;
+        newEnemyScript.path = ChoosePath();
         MapGlobalFields.allEnemies.Add(newEnemy);
 
         yield return new WaitForSeconds(respawnTimer);
@@ -51,6 +56,17 @@ public class EnemySpawn : MonoBehaviour
     {
         yield return new WaitForSeconds(gameSpeed);
         respawnTimer -= spawnDecrease;
+    }
+
+    private Transform[] ChoosePath()
+    {
+        if (secondPath.Length == 0)
+            return path;
+        pathNum = (pathNum + 1) % 2;
+
+        if (pathNum == 1)
+            return secondPath;
+        return path;
     }
 
     private GameObject ChooseEnemyRandomly()

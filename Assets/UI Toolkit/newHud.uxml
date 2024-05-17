@@ -1,13 +1,20 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/newHudStyle.uss?fileID=7433441132597879392&amp;guid=40049ec6e2a97f340bc0919b4fe7eab0&amp;type=3#newHudStyle" />
-    <Style src="project://database/Assets/UI%20Toolkit/healthBar.uss?fileID=7433441132597879392&amp;guid=845a830fc2b294c4980100e8e4190a1a&amp;type=3#healthBar" />
     <ui:VisualElement style="flex-grow: 1; justify-content: space-between;">
         <ui:VisualElement name="VisualElement" style="flex-grow: 0; height: 9%; flex-direction: row; justify-content: flex-end;">
-            <ui:VisualElement style="flex-grow: 0; width: 39%; flex-direction: row-reverse; margin-right: 25px; justify-content: space-around; align-items: center;">
-                <ui:Label tabindex="-1" text="100" parse-escape-sequences="true" display-tooltip-when-elided="true" name="HealthPoints" class="stat-text" style="background-color: rgb(147, 6, 6);" />
-                <ui:Label tabindex="-1" text="100" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Money" class="stat-text" style="background-color: rgb(43, 105, 56);" />
-                <ui:Label tabindex="-1" text="100" parse-escape-sequences="true" display-tooltip-when-elided="true" name="enemyLeft" class="stat-text" style="background-color: rgb(72, 36, 67);" />
-                <ui:ProgressBar value="100" title="100" name="healthBar" high-value="0" tabindex="-1" style="height: 19px; width: 198px; background-color: rgb(147, 6, 6); color: rgb(0, 0, 0); -unity-background-image-tint-color: rgb(255, 255, 255);" />
+            <ui:VisualElement name="VisualElement" style="flex-grow: 0; width: 48%; flex-direction: row-reverse; margin-right: 32px; justify-content: space-between; align-items: center;">
+                <ui:VisualElement style="flex-grow: 1; flex-direction: row; width: 9%;">
+                    <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-image: url(&apos;project://database/Assets/Sprites/money.png?fileID=21300000&amp;guid=597947ebf9840a344a56e90ba3f03bc8&amp;type=3#money&apos;); -unity-background-scale-mode: scale-and-crop; width: 89px;" />
+                    <ui:Label tabindex="-1" text="100" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Money" class="stat-text" style="background-color: rgb(43, 105, 56);" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
+                    <ui:VisualElement name="VisualElement" style="flex-grow: 0; background-image: url(&apos;project://database/Assets/Prefabs/%D0%98%D0%BA%D0%BE%D0%BD%D0%BA%D0%B0.png?fileID=21300000&amp;guid=7e21ae178ed9dc74381b6923ffd5260b&amp;type=3#Иконка&apos;); height: auto; width: 48%; -unity-background-scale-mode: scale-to-fit;" />
+                    <ui:Label tabindex="-1" text="100" parse-escape-sequences="true" display-tooltip-when-elided="true" name="enemyLeft" class="stat-text" style="background-color: rgb(72, 36, 67);" />
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 1; width: 37%; height: 33%; flex-direction: row;">
+                    <ui:VisualElement style="flex-grow: 1; background-image: url(&apos;project://database/Assets/Sprites/heart.png?fileID=21300000&amp;guid=197eda930a19b374390a828b6aea4a48&amp;type=3#heart&apos;); -unity-background-scale-mode: scale-and-crop;" />
+                    <ui:ProgressBar value="100" title="100" name="healthBar" high-value="0" tabindex="-1" class="healthbar" style="height: 33%; width: 52%; background-color: rgb(147, 6, 6); color: rgb(0, 0, 0); -unity-background-image-tint-color: rgb(60, 52, 52); -unity-background-scale-mode: stretch-to-fill; flex-grow: 1; flex-direction: column;" />
+                </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="PicContainer" style="flex-grow: 0; align-self: flex-end; width: 9%; height: 27%; background-color: rgba(0, 0, 0, 0.23); background-image: none; -unity-background-scale-mode: scale-and-crop;" />

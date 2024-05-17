@@ -9,7 +9,6 @@ public class UiUpdateManager : MonoBehaviour
     private CameraScript cameraScript;
     private LevelTransition levelTransition;
     public bool isOnButton = false;
-    
 
     private void Start()
     {
