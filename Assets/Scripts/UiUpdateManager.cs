@@ -23,7 +23,7 @@ public class UiUpdateManager : MonoBehaviour
     public void SetUpHud()
     {
         uiScript.SetMoneyText(cameraScript.money);
-        uiScript.UpdateHealthBar(cameraScript.healthPoints);
+        uiScript.SetHealthBar(cameraScript.healthPoints);
         uiScript.SetEnemyLeft(cameraScript.enemyNum);
     }
 
@@ -34,7 +34,7 @@ public class UiUpdateManager : MonoBehaviour
 
     public void HealthPointsUpdate(int healthPoints)
     {
-        uiScript.SetHealthPoints(healthPoints);
+        uiScript.SetHealthBar(healthPoints);
     }
 
     public void MoneyUpdate(int money)

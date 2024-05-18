@@ -5,11 +5,9 @@ using UnityEngine;
 
 public class EndGymScrypt : MonoBehaviour
 {
-
     private CameraScript cameraScript;
 
-
-    private void Start()
+    private void Awake()
     {
         cameraScript = Camera.main.GetComponent<CameraScript>();
     }

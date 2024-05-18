@@ -77570,11 +77570,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 6737043931232854861, guid: d98612976df690a4090b31091cf91640, type: 3}
-  money: 200
+  money: 100
   cost: 100
-  healthPoints: 1
-  enemyNum: 1
+  healthPoints: 20
+  enemyNum: 20
   tilemap: {fileID: 95585413}
+  LevelNum: 1
   moveAmount: 12
   scrollSpeed: 20
   soundManagerObject: {fileID: 2129955199}
@@ -77608,7 +77609,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hud: {fileID: 508031424}
   isOnButton: 0
-  LevelNum: 1
 --- !u!1 &536741676
 GameObject:
   m_ObjectHideFlags: 0
@@ -80462,7 +80462,7 @@ MonoBehaviour:
   - {fileID: 164666462}
   secondPath: []
   respawnTimer: 2
-  spawnDecrease: 0.05
+  spawnDecrease: 0.1
   spawnTimeLimit: 0.5
   gameSpeed: 1
 --- !u!4 &837609931 stripped
@@ -81238,6 +81238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18a70b3b7ea0c694c95d34bc9c7560d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelNum: 1
 --- !u!4 &1817065904 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5455108377793712902, guid: 3911d9c2c38194b4db399893109c9250, type: 3}

@@ -58,16 +58,16 @@ public class UI : MonoBehaviour
 
 
         buttonBurger.clicked += ButtonBurger_clicked;
-        buttonBurger.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("йоу! Крутая башня :)"); });
+        buttonBurger.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("Один плотный и вкусный бургер"); });
         buttonBurger.RegisterCallback<MouseLeaveEvent>((type) => { HideDesctiption(); });
         buttonCola.clicked += ButtonCola_clicked;
-        buttonCola.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("Йооооу, тоже крутая башня!!"); });
+        buttonCola.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("Ледяная кола замедлит ваших неприятелей"); });
         buttonCola.RegisterCallback<MouseLeaveEvent>((type) => { HideDesctiption(); });
         buttonCake.clicked += ButtonCake_clicked;
-        buttonCake.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("Бомбовая башенка"); });
+        buttonCake.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("Бомбовая башенка покрывает сразу всех врагов"); });
         buttonCake.RegisterCallback<MouseLeaveEvent>((type) => { HideDesctiption(); });
         buttonPopcorn.clicked += ButtonPopcorn_clicked;
-        buttonPopcorn.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("Стреляет в форме + с небольшой дальностью"); });
+        buttonPopcorn.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("Разлетается во все стороны"); });
         buttonPopcorn.RegisterCallback<MouseLeaveEvent>((type) => { HideDesctiption(); });
         buttonFarm.clicked += ButtonFarm_clicked;
         buttonFarm.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("Башня добывает деньги со временем"); });
@@ -126,16 +126,12 @@ public class UI : MonoBehaviour
     {
         moneyText.text = curMoney.ToString();
     }
-    public void SetHealthPoints(int curHealth)
-    {
-        healthPoints.text = curHealth.ToString();
-    }
     public void SetEnemyLeft(int enemyLeftNum)
     {
         enemyLeft.text = enemyLeftNum.ToString();
     }
 
-    public void UpdateHealthBar(int hp)
+    public void SetHealthBar(int hp)
     {
         healthBar.title = hp.ToString();
         healthBar.value = hp;

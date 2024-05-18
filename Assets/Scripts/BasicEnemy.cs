@@ -17,6 +17,7 @@ public class BasicEnemy : MonoBehaviour
 
     public int Health = 3;
     public int Damage = 1;
+    private float alpha = 1f;
     void Start()
     {
         transform.position = path[0].position;
@@ -93,6 +94,19 @@ public class BasicEnemy : MonoBehaviour
     {
         MapGlobalFields.allEnemies.Remove(gameObject);
         Camera.main.GetComponent<CameraScript>().HandleEnemyDeath();
+        isStopped = true;
+        GetComponent<Animator>().enabled = false;
         Destroy(gameObject);
+
+    }
+
+    private IEnumerator FadeAway()
+    {
+        spriteRenderer.color = new Color(1f, 1f, 1f, alpha);
+        alpha -= 0.01f;
+        if (alpha <= 0)
+            Destroy(gameObject);
+        yield return new WaitForSeconds(0.1f);
+        StartCoroutine(FadeAway());
     }
 }

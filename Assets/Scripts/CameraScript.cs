@@ -56,6 +56,10 @@ public class CameraScript : MonoBehaviour
         {
             CheckVictory();
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = (Time.timeScale + 1) % 2;
+        }
 
     }
 
