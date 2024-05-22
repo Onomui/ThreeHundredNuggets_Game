@@ -80685,6 +80685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelNum: 1
+  typingSpeed: 0.025
 --- !u!4 &1175383808 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5455108377793712902, guid: 3911d9c2c38194b4db399893109c9250, type: 3}
