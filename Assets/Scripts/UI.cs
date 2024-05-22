@@ -55,22 +55,23 @@ public class UI : MonoBehaviour
         enemyLeft = root.Q<Label>("enemyLeft");
         healthBar = root.Q<ProgressBar>("healthBar");
         description = root.Q<Label>("Description");
+        
 
 
         buttonBurger.clicked += ButtonBurger_clicked;
-        buttonBurger.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("Один плотный и вкусный бургер"); });
+        buttonBurger.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ"); });
         buttonBurger.RegisterCallback<MouseLeaveEvent>((type) => { HideDesctiption(); });
         buttonCola.clicked += ButtonCola_clicked;
-        buttonCola.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("Ледяная кола замедлит ваших неприятелей"); });
+        buttonCola.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"); });
         buttonCola.RegisterCallback<MouseLeaveEvent>((type) => { HideDesctiption(); });
         buttonCake.clicked += ButtonCake_clicked;
-        buttonCake.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("Бомбовая башенка покрывает сразу всех врагов"); });
+        buttonCake.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ"); });
         buttonCake.RegisterCallback<MouseLeaveEvent>((type) => { HideDesctiption(); });
         buttonPopcorn.clicked += ButtonPopcorn_clicked;
-        buttonPopcorn.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("Разлетается во все стороны"); });
+        buttonPopcorn.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ"); });
         buttonPopcorn.RegisterCallback<MouseLeaveEvent>((type) => { HideDesctiption(); });
         buttonFarm.clicked += ButtonFarm_clicked;
-        buttonFarm.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("Башня добывает деньги со временем"); });
+        buttonFarm.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"); });
         buttonFarm.RegisterCallback<MouseLeaveEvent>((type) => { HideDesctiption(); });
         healthBar.highValue = cameraScript.healthPoints;
         healthBar.style.backgroundColor = Color.blue;
@@ -136,4 +137,5 @@ public class UI : MonoBehaviour
         healthBar.title = hp.ToString();
         healthBar.value = hp;
     }
+    
 }

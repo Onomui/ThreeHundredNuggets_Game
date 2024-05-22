@@ -1,25 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
+using System.Text;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UIElements;
+using System.Timers;
+using UnityEditor;
 
 public class DialogueScript : MonoBehaviour
 {
+    private StringBuilder AnimateText = new();
     private string[] ForFirst = new[]
     {
-        "Доктор Бургермен создает мощного пищевого робота Фастфудиум, способного \nпроизводить невероятно вкусные и калорийные блюда. Он начинает свою миссию\n по распространению пищевого изобилия среди населения Земли.",
-        "\"Слава и вкус будут править этим миром! Пусть люди окажутся пленниками \nсвоих желудков, а я буду править ними с помощью моего замечательного \nФастфудиума! Уахахаахахх, СОСИТЕ КОКА КОЛУ ИЗ МОИХ ТРУБОЧЕК!\""
+        "Р”РѕРєС‚РѕСЂ Р‘СѓСЂРіРµСЂРјРµРЅ СЃРѕР·РґР°РµС‚ РјРѕС‰РЅРѕРіРѕ РїРёС‰РµРІРѕРіРѕ СЂРѕР±РѕС‚Р° Р¤Р°СЃС‚С„СѓРґРёСѓРј, СЃРїРѕСЃРѕР±РЅРѕРіРѕ РїСЂРѕРёР·РІРѕРґРёС‚СЊ РЅРµРІРµСЂРѕСЏС‚РЅРѕ РІРєСѓСЃРЅС‹Рµ Рё РєР°Р»РѕСЂРёР№РЅС‹Рµ Р±Р»СЋРґР°.\n РћРЅ РЅР°С‡РёРЅР°РµС‚ СЃРІРѕСЋ РјРёСЃСЃРёСЋ РїРѕ СЂР°СЃРїСЂРѕСЃС‚СЂР°РЅРµРЅРёСЋ РїРёС‰РµРІРѕРіРѕ РёР·РѕР±РёР»РёСЏ СЃСЂРµРґРё РЅР°СЃРµР»РµРЅРёСЏ Р—РµРјР»Рё.",
+        "\"РЎР»Р°РІР° Рё РІРєСѓСЃ Р±СѓРґСѓС‚ РїСЂР°РІРёС‚СЊ СЌС‚РёРј РјРёСЂРѕРј! РџСѓСЃС‚СЊ Р»СЋРґРё РѕРєР°Р¶СѓС‚СЃСЏ РїР»РµРЅРЅРёРєР°РјРё СЃРІРѕРёС… Р¶РµР»СѓРґРєРѕРІ,\n Р° СЏ Р±СѓРґСѓ РїСЂР°РІРёС‚СЊ РЅРёРјРё СЃ РїРѕРјРѕС‰СЊСЋ РјРѕРµРіРѕ Р·Р°РјРµС‡Р°С‚РµР»СЊРЅРѕРіРѕ Р¤Р°СЃС‚С„СѓРґРёСѓРјР°!\n РЈР°С…Р°С…Р°Р°С…Р°С…С…, РЎРћРЎРРўР• РљРћРљРђ РљРћР›РЈ РР— РњРћРРҐ РўР РЈР‘РћР§Р•Рљ!\""
     };
     private string[] ForSecond = new[]
     {
-        "Бургермен сталкивается с первыми препятствиями со стороны людей, которые \nхотят сохранить мир и процветание, достигнутые благодаря здоровому образу \nжизни. Он принимает решительные меры против оппонентов, \nчтобы продвинуть свою идеологию ожирения.",
-        "\"Те, кто осмеливаются противиться моему величию, будут уничтожены в вихре \nкалорийного вкуса! Никто не остановит меня на пути к победе над здоровым \nпитания!\"",
-        "\"У тебя не получится захватить власть в этом городе! Спорт сила - ты могила\""
+        "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ \nпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ \nпїЅпїЅпїЅпїЅпїЅ. пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, \nпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.",
+        "\"пїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ \nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ! пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ \nпїЅпїЅпїЅпїЅпїЅпїЅпїЅ!\"",
+        "\"пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ! пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ - пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ\""
     };
     private string[] dialogueLines;
     private int dialogueLineNum = 0;
     private Label dialogueText;
     public int LevelNum = 1;
+    private Coroutine displayCoroutine;
+    [SerializeField] private float typingSpeed = 1.04f;
 
     private void OnEnable()
     {
@@ -32,20 +40,37 @@ public class DialogueScript : MonoBehaviour
 
         var dialogueButton = root.Q<Button>("dialogueButton");
         dialogueText = root.Q<Label>("dialogueText");
-        
-        dialogueText.text = dialogueLines[dialogueLineNum];
-
+        displayCoroutine = StartCoroutine(DisplayLine(dialogueLines[dialogueLineNum]));
         dialogueButton.clicked += DialogueButton_clicked;
     }
 
+    private IEnumerator DisplayLine(string line)
+    {
+        dialogueText.text = "";
+        foreach (var letter in line)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                StopCoroutine(displayCoroutine);
+                dialogueText.text = dialogueLines[dialogueLineNum];
+                break;
+            }
+            dialogueText.text += letter;
+            yield return new WaitForSecondsRealtime(typingSpeed);
+        }
+    }
+    
+
     private void DialogueButton_clicked()
     {
+        StopCoroutine(displayCoroutine);
         dialogueLineNum++;
         if (dialogueLineNum == dialogueLines.Length)
         {
             Camera.main.GetComponent<UiUpdateManager>().ChangeScreen("hud");
             return;
         }
-        dialogueText.text = dialogueLines[dialogueLineNum];
+
+        displayCoroutine = StartCoroutine(DisplayLine(dialogueLines[dialogueLineNum]));
     }
 }

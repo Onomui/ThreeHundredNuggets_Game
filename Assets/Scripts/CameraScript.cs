@@ -14,7 +14,8 @@ public class CameraScript : MonoBehaviour
     public int cost = 100;
     public int healthPoints = 10;
     private bool dead = false;
-
+    private readonly float upZoomBorder = 7;
+    private readonly float downZoomBorder = 3;
     public int enemyNum = 1;
 
     [SerializeField]
@@ -142,13 +143,13 @@ public class CameraScript : MonoBehaviour
 
     private void CheckEdgeMovement()
     {
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) &&  Camera.main.transform.position.x < 15)
             cameraMove.x = 1;
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) && Camera.main.transform.position.x > -15)
             cameraMove.x = -1;
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow) && Camera.main.transform.position.y < 13)
             cameraMove.y = 1;
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow) && Camera.main.transform.position.y > -13)
             cameraMove.y = -1;
 
         Camera.main.transform.position += cameraMove.normalized * moveAmount * Time.deltaTime;
@@ -157,6 +158,8 @@ public class CameraScript : MonoBehaviour
 
     private void CheckZoom()
     {
-        Camera.main.orthographicSize = Camera.main.orthographicSize - Input.mouseScrollDelta.y * Time.deltaTime * scrollSpeed;
+        var zoomDelta = Camera.main.orthographicSize - Input.mouseScrollDelta.y * Time.deltaTime * scrollSpeed;
+        if (zoomDelta < upZoomBorder && zoomDelta > downZoomBorder)
+            Camera.main.orthographicSize = zoomDelta;
     }
 }
