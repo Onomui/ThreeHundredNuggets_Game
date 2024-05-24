@@ -181,6 +181,7 @@ MonoBehaviour:
   moneyDrop: 30
   Health: 2
   Damage: 1
+  animName: BasicEnemyDie
 --- !u!95 &7269372578019874015
 Animator:
   serializedVersion: 5

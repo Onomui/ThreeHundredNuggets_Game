@@ -181,6 +181,7 @@ MonoBehaviour:
   moneyDrop: 500
   Health: 20
   Damage: 10
+  animName: EgorDie
 --- !u!95 &-5379115362877569069
 Animator:
   serializedVersion: 5

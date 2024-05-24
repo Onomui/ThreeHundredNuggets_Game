@@ -178,10 +178,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   speed: 5
-  frozenEnemy: {fileID: 21300000, guid: ed55ac6e42bd33447a1085377408ec2c, type: 3}
   moneyDrop: 20
   Health: 1
   Damage: 1
+  animName: SkinnyEnemyDie
 --- !u!95 &-2929102238176384096
 Animator:
   serializedVersion: 5

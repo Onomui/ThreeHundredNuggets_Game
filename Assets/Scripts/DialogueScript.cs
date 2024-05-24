@@ -18,9 +18,9 @@ public class DialogueScript : MonoBehaviour
     };
     private string[] ForSecond = new[]
     {
-        "��������� ������������ � ������� ������������� �� ������� �����, ������� \n����� ��������� ��� � �����������, ����������� ��������� ��������� ������ \n�����. �� ��������� ����������� ���� ������ ����������, \n����� ���������� ���� ��������� ��������.",
-        "\"��, ��� ������������ ����������� ����� �������, ����� ���������� � ����� \n����������� �����! ����� �� ��������� ���� �� ���� � ������ ��� �������� \n�������!\"",
-        "\"� ���� �� ��������� ��������� ������ � ���� ������! ����� ���� - �� ������\""
+        "Бургермен сталкивается с первыми препятствиями со стороны людей, которые \nхотят сохранить мир и процветание, достигнутые благодаря здоровому образу \nжизни. Он принимает решительные меры против оппонентов, \nчтобы продвинуть свою идеологию ожирения.",
+        "\"Те, кто осмеливаются противиться моему величию, будут уничтожены в вихре \nкалорийного вкуса! Никто не остановит меня на пути к победе над здоровым \nпитания!\"",
+        "\"У тебя не получится захватить власть в этом городе! Спорт сила - ты могила\""
     };
     private string[] dialogueLines;
     private int dialogueLineNum = 0;
@@ -29,6 +29,7 @@ public class DialogueScript : MonoBehaviour
     private Coroutine displayCoroutine;
     [SerializeField] private float typingSpeed = 1.04f;
 
+    [SerializeField] private GameObject tutor;
     private void OnEnable()
     {
         var allLines = new[] { ForFirst, ForSecond };
@@ -67,7 +68,10 @@ public class DialogueScript : MonoBehaviour
         dialogueLineNum++;
         if (dialogueLineNum == dialogueLines.Length)
         {
-            Camera.main.GetComponent<UiUpdateManager>().ChangeScreen("hud");
+            if (tutor != null)
+                Camera.main.GetComponent<UiUpdateManager>().ChangeScreen("tutorial");
+            else
+                Camera.main.GetComponent<UiUpdateManager>().ChangeScreen("hud");
             return;
         }
 

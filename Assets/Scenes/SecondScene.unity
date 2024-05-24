@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 780fcafa6abfab44b8ee8e7d527f80f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: SecondScene
+  nextSceneName: ThirdScene
 --- !u!114 &57914437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -643,6 +643,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelNum: 2
+  typingSpeed: 1.04
+  tutor: {fileID: 0}
 --- !u!114 &340370200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5174,7 +5176,7 @@ MonoBehaviour:
   basicEnemy: {fileID: 6866544896402323360, guid: e8762444807f42649a5000234fc3b252, type: 3}
   speedEnemy: {fileID: 6866544896402323360, guid: 3c161ad44ad6023498cfd3d4d3498846, type: 3}
   bossEnemy: {fileID: 6866544896402323360, guid: fc7cd3f1d7915d5448e51c3c0a2f771b, type: 3}
-  superBossEnemy: {fileID: 6866544896402323360, guid: 3f9eebbbe6f0e154fa6d3483abd1d32c, type: 3}
+  EGOR: {fileID: 6866544896402323360, guid: 3f9eebbbe6f0e154fa6d3483abd1d32c, type: 3}
   path:
   - {fileID: 1069474074}
   - {fileID: 1174232657}
@@ -83520,6 +83522,7 @@ MonoBehaviour:
   Hud: {fileID: 1743652980}
   VictoryScreen: {fileID: 57914435}
   GameOverScreen: {fileID: 2014595552}
+  TutorialScreen: {fileID: 0}
 --- !u!114 &1938882990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83550,7 +83553,7 @@ MonoBehaviour:
   money: 200
   cost: 100
   healthPoints: 100
-  enemyNum: 100
+  enemyNum: 20
   tilemap: {fileID: 1460578489}
   LevelNum: 2
   moveAmount: 12

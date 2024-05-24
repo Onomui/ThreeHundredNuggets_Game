@@ -17,7 +17,15 @@ public class BasicEnemy : MonoBehaviour
 
     public int Health = 3;
     public int Damage = 1;
-    private float alpha = 1f;
+
+    private Animator anim;
+    public string animName;
+    private bool isAlive = true;
+
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
     void Start()
     {
         transform.position = path[0].position;
@@ -52,7 +60,7 @@ public class BasicEnemy : MonoBehaviour
     public void DoDamage(int damage)
     {
         Health -= damage;
-        if (!freezed)
+        if (!freezed && Health >= 1)
         {
             spriteRenderer.color = Color.red;
             StartCoroutine(RestoreColor());
@@ -83,30 +91,22 @@ public class BasicEnemy : MonoBehaviour
 
     private void CheckDeath()
     {
-        if (Health <= 0)
+        if (Health <= 0 && isAlive)
         {
+            isAlive = false;
             Camera.main.GetComponent<CameraScript>().ChangeMoney(moneyDrop);
-            KillEnemy();
+            StartCoroutine(KillEnemy());
         }
     }
 
-    public void KillEnemy()
+    public IEnumerator KillEnemy()
     {
+        Destroy(GetComponent<CircleCollider2D>());
         MapGlobalFields.allEnemies.Remove(gameObject);
         Camera.main.GetComponent<CameraScript>().HandleEnemyDeath();
         isStopped = true;
-        GetComponent<Animator>().enabled = false;
+        anim.Play($"Base Layer.{animName}", 0);
+        yield return new WaitForSeconds(0.4f);
         Destroy(gameObject);
-
-    }
-
-    private IEnumerator FadeAway()
-    {
-        spriteRenderer.color = new Color(1f, 1f, 1f, alpha);
-        alpha -= 0.01f;
-        if (alpha <= 0)
-            Destroy(gameObject);
-        yield return new WaitForSeconds(0.1f);
-        StartCoroutine(FadeAway());
     }
 }

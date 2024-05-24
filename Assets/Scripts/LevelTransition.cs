@@ -8,10 +8,8 @@ public class LevelTransition : MonoBehaviour
     [SerializeField] private GameObject Hud;
     [SerializeField] private GameObject VictoryScreen;
     [SerializeField] private GameObject GameOverScreen;
+    [SerializeField] private GameObject TutorialScreen;
 
-    public void AnimateText()
-    {
-    }
     public void ChangeDialogueScreen()
     {
         DialogueScreen.SetActive(true);
@@ -30,6 +28,21 @@ public class LevelTransition : MonoBehaviour
         Hud.SetActive(false);
         GameOverScreen.SetActive(true);
     }
+   
+    public void ChangeTutorialScreen()
+    {
+        Time.timeScale = 0;
+        DialogueScreen.SetActive(false);
+        Hud.SetActive(true);
+        TutorialScreen.SetActive(true);
+    }
+
+    public void TurnOfTutorialScreen()
+    {
+        TutorialScreen.SetActive(false);
+        Time.timeScale = 1;
+    }
+
     public void ChangeHudScreen()
     {
         Time.timeScale = 1;
