@@ -9,8 +9,7 @@ public class BasicEnemy : MonoBehaviour
     [SerializeField]
     private float speed;
     private bool freezed = false;
-    [SerializeField]
-    private int moneyDrop = 10;
+    public int moneyDrop = 10;
     private SpriteRenderer spriteRenderer;
     private int curPathPoint = 1;
     private bool isStopped = false;
@@ -106,6 +105,7 @@ public class BasicEnemy : MonoBehaviour
         Camera.main.GetComponent<CameraScript>().HandleEnemyDeath();
         isStopped = true;
         anim.Play($"Base Layer.{animName}", 0);
+        GetComponent<SpawnPopup>().SpawnAndMovePopup();
         yield return new WaitForSeconds(0.4f);
         Destroy(gameObject);
     }
