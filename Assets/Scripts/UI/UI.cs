@@ -122,7 +122,16 @@ public class UI : MonoBehaviour
         cameraScript.tower = tower;
         cameraScript.cost = cost;
         pic.style.backgroundImage = new StyleBackground(sprite);
+        cameraScript.HowerTowerOnGrid();
     }
+
+    public void DeselectTower()
+    {
+        cameraScript.tower = null;
+        cameraScript.cost = 0;
+        pic.style.backgroundImage = new StyleBackground();
+    }
+
     public void SetMoneyText(int curMoney)
     {
         moneyText.text = curMoney.ToString();

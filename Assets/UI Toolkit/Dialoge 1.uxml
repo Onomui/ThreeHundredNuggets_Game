@@ -6,9 +6,9 @@
             </ui:VisualElement>
             <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="dialogueButton" style="align-self: flex-end; width: 49px; height: 45px; background-image: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=-1087164816274819069&amp;guid=729398ea2006b5845a6f0d4f87de7971&amp;type=3#arrow-right@2x&apos;); background-color: rgb(9, 8, 8); -unity-background-image-tint-color: rgb(255, 255, 255);" />
         </ui:VisualElement>
-        <ui:VisualElement style="flex-grow: 1;">
+        <ui:VisualElement style="flex-grow: 1; background-image: none;">
             <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.75);">
-                <ui:Label tabindex="-1" text="производить невероятно вкусные и калорийные блюда. Он начинает свою миссию по распространению пищевого изобилия среди населения Земли." parse-escape-sequences="true" display-tooltip-when-elided="true" name="dialogueText" style="flex-grow: 1; -unity-font: url(&apos;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#LegacyRuntime&apos;); font-size: 30px; -unity-font-definition: initial; color: rgb(255, 255, 255); -unity-text-outline-width: 0; background-image: url(&apos;project://database/Assets/Sprites/93586-box-angle-brand-game-video-dialog-mother.png?fileID=2800000&amp;guid=27688931b68d66a4e8fcdc0a227236b0&amp;type=3#93586-box-angle-brand-game-video-dialog-mother&apos;);" />
+                <ui:Label tabindex="-1" text="производить невероятно вкусные и калорийные блюда. Он начинает свою миссию по распространению пищевого изобилия среди населения Земли." parse-escape-sequences="true" display-tooltip-when-elided="true" name="dialogueText" style="flex-grow: 1; -unity-font: url(&apos;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#LegacyRuntime&apos;); font-size: 30px; -unity-font-definition: initial; color: rgb(255, 255, 255); -unity-text-outline-width: 0; background-image: none;" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

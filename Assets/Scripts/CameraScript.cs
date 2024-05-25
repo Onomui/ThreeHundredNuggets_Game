@@ -21,7 +21,7 @@ public class CameraScript : MonoBehaviour
     [SerializeField]
     private Tilemap tilemap;
 
-    public int LevelNum = 1; 
+    public int LevelNum = 1;
 
     [SerializeField]
     private float moveAmount = 2f;
@@ -33,8 +33,14 @@ public class CameraScript : MonoBehaviour
     private GameObject soundManagerObject;
     private SoundManager soundManager;
 
+    public GameObject Ui;
+    private UI uiScript;
+    private GameObject alphaTower;
+    private Vector3 mousePos;
+
     private void Start()
     {
+        uiScript = Ui.GetComponent<UI>();
         uiUpdateManager = GetComponent<UiUpdateManager>();
 
         soundManager = soundManagerObject.GetComponent<SoundManager>();
@@ -42,6 +48,9 @@ public class CameraScript : MonoBehaviour
 
     void Update()
     {
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0;
+
         CheckEdgeMovement();
         CheckZoom();
         if (Input.GetMouseButtonDown(0) && !uiUpdateManager.isOnButton)
@@ -60,6 +69,13 @@ public class CameraScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Time.timeScale = (Time.timeScale + 1) % 2;
+        }
+
+        if (alphaTower != null)
+        {
+            var cellPos = tilemap.WorldToCell(mousePos);
+            if (PlaceOnGrid(cellPos, false))
+                alphaTower.transform.position = tilemap.GetCellCenterWorld(cellPos);
         }
 
     }
@@ -102,23 +118,46 @@ public class CameraScript : MonoBehaviour
 
     private void SpawnOnClick()
     {
-        var clickPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        clickPos.z = 0f;
+        if (tower == null)
+            return;
+        var clickPos = mousePos;
 
         var cellPos = tilemap.WorldToCell(clickPos);
-        if (!PlaceOnGrid(cellPos))
+        if (!PlaceOnGrid(cellPos, true))
         {
             GetComponent<ErrorBuildPopUp>().SpawnAndMovePopup(clickPos);
             return;
         }
         soundManager.PlayTowerSpawn();
-
+        UnHower();
         Instantiate(tower, tilemap.GetCellCenterWorld(cellPos), Quaternion.identity);
         ChangeMoney(-cost);
         GetComponent<TowerBuildPopup>().SpawnAndMovePopup(clickPos);
+        uiScript.DeselectTower();
     }
 
-    private bool PlaceOnGrid(Vector3Int cellPos)
+    public void HowerTowerOnGrid()
+    {
+        UnHower();
+        alphaTower = Instantiate(tower, new Vector3(100, 100, 0), Quaternion.identity);
+        alphaTower.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+        if (alphaTower.GetComponent<BasicTower>()!= null)
+            alphaTower.GetComponent<BasicTower>().enabled = false;
+        if (alphaTower.GetComponent<SplashTower>() != null)
+            alphaTower.GetComponent<SplashTower>().enabled = false;
+        if (alphaTower.GetComponent<FarmTower>() != null)
+            alphaTower.GetComponent<FarmTower>().enabled = false;
+        if (alphaTower.GetComponent<PopcornTower>() != null)
+            alphaTower.GetComponent<PopcornTower>().enabled = false;
+    }
+
+    private void UnHower()
+    {
+        if (alphaTower != null)
+            Destroy(alphaTower);
+    }
+
+    private bool PlaceOnGrid(Vector3Int cellPos, bool isLocking)
     {
         if (LevelNum == 1)
         {
@@ -127,7 +166,8 @@ public class CameraScript : MonoBehaviour
            || MapGlobalFields.lockedCell[cellPos.y + 3, cellPos.x + 5] == 1
            || money < cost)
                 return false;
-            MapGlobalFields.lockedCell[cellPos.y + 3, cellPos.x + 5] = 1;
+            if (isLocking)
+                MapGlobalFields.lockedCell[cellPos.y + 3, cellPos.x + 5] = 1;
             return true;
         }
         if (LevelNum == 2)
@@ -137,7 +177,8 @@ public class CameraScript : MonoBehaviour
            || MapGlobalFields.lockedCell[cellPos.y + 4, cellPos.x + 8] == 1
            || money < cost)
                 return false;
-            MapGlobalFields.lockedCell[cellPos.y + 4, cellPos.x + 8] = 1;
+            if (isLocking)
+                MapGlobalFields.lockedCell[cellPos.y + 4, cellPos.x + 8] = 1;
             return true;
         }
         if (LevelNum == 3)
@@ -147,7 +188,8 @@ public class CameraScript : MonoBehaviour
                 || MapGlobalFields.lockedCell[cellPos.y + 5, cellPos.x + 8] == 1
                 || money < cost)
                 return false;
-            MapGlobalFields.lockedCell[cellPos.y + 5, cellPos.x + 8] = 1;
+            if (isLocking)
+                MapGlobalFields.lockedCell[cellPos.y + 5, cellPos.x + 8] = 1;
             return true;
         }
         return false;

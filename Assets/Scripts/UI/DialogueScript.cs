@@ -22,6 +22,12 @@ public class DialogueScript : MonoBehaviour
         "\"Те, кто осмеливаются противиться моему величию, будут уничтожены в вихре \nкалорийного вкуса! Никто не остановит меня на пути к победе над здоровым \nпитания!\"",
         "\"У тебя не получится захватить власть в этом городе! Спорт сила - ты могила\""
     };
+    private string[] ForThird = new[]
+{
+        "Бургермен утверждает свою власть и начинает систематически уничтожать всех, \nкто остается верен здоровому образу жизни. Он предлагает людям выбор - принять идеологию \nожирения или быть уничтоженными.",
+        "\"ХАХАХАА, Почти не осталось Фитнесс залов и вся власть перешла ко мне! \nПочти все люди уже имеют 2 степень ожирения!\"",
+        "приспешник босса: \"БургерМен, твоя тирания ужасна, ты поработил все инфраструктуры \nи превратил их во всяческие забегаловки, люди не должны так жить, освободи всех по хорошему\""
+    };
     private string[] dialogueLines;
     private int dialogueLineNum = 0;
     private Label dialogueText;
@@ -32,7 +38,7 @@ public class DialogueScript : MonoBehaviour
     [SerializeField] private GameObject tutor;
     private void OnEnable()
     {
-        var allLines = new[] { ForFirst, ForSecond };
+        var allLines = new[] { ForFirst, ForSecond, ForThird };
         dialogueLines = allLines[LevelNum - 1];
 
 
