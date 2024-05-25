@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PopupMoveAndDestroy : MonoBehaviour
+public class PopupMove : MonoBehaviour
 {
     public float speed = 1f;
 
@@ -20,7 +20,7 @@ public class PopupMoveAndDestroy : MonoBehaviour
         var canvasGroup = GetComponent<CanvasGroup>();
         while ((Time.time - startTime) * speed < dist)
         {
-            canvasGroup.alpha -= 0.005f;
+            canvasGroup.alpha -= 0.001f;
             float distCovered = (Time.time - startTime) * speed;
             float curDist = distCovered / dist;
 

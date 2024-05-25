@@ -114,7 +114,7 @@ public class EnemySpawn : MonoBehaviour
         enemyStack.Push(basicEnemy);
         enemyStack.Push(basicEnemy);
         enemyStack.Push(basicEnemy);
-        enemyStack.Push(EGOR);
+        enemyStack.Push(basicEnemy);
 
     }
 }

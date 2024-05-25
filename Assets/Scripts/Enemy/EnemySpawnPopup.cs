@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class SpawnPopup : MonoBehaviour
+public class EnemySpawnPopup : MonoBehaviour
 {
     public GameObject Popup;
-    public float speed = 1;
 
     public void SpawnAndMovePopup()
     {
@@ -14,6 +13,7 @@ public class SpawnPopup : MonoBehaviour
         spawnPos.y += 1;
         var popup = Instantiate(Popup, spawnPos, Quaternion.identity);
         popup.transform.Find("PopupText").GetComponent<TextMeshProUGUI>().text = $"+ {GetComponent<BasicEnemy>().moneyDrop}";
-        popup.GetComponent<PopupMoveAndDestroy>().Move();
+        popup.transform.Find("PopupText").GetComponent<TextMeshProUGUI>().color = new Color(0.1497006f, 1, 0);
+        popup.GetComponent<PopupMove>().Move();
     }
 }

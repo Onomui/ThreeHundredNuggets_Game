@@ -105,7 +105,7 @@ public class BasicEnemy : MonoBehaviour
         Camera.main.GetComponent<CameraScript>().HandleEnemyDeath();
         isStopped = true;
         anim.Play($"Base Layer.{animName}", 0);
-        GetComponent<SpawnPopup>().SpawnAndMovePopup();
+        GetComponent<EnemySpawnPopup>().SpawnAndMovePopup();
         yield return new WaitForSeconds(0.4f);
         Destroy(gameObject);
     }

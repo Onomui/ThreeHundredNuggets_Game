@@ -107,11 +107,15 @@ public class CameraScript : MonoBehaviour
 
         var cellPos = tilemap.WorldToCell(clickPos);
         if (!PlaceOnGrid(cellPos))
+        {
+            GetComponent<ErrorBuildPopUp>().SpawnAndMovePopup(clickPos);
             return;
+        }
         soundManager.PlayTowerSpawn();
 
         Instantiate(tower, tilemap.GetCellCenterWorld(cellPos), Quaternion.identity);
         ChangeMoney(-cost);
+        GetComponent<TowerBuildPopup>().SpawnAndMovePopup(clickPos);
     }
 
     private bool PlaceOnGrid(Vector3Int cellPos)
