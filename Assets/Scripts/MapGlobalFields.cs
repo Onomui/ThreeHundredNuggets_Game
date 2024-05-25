@@ -25,6 +25,17 @@ public class MapGlobalFields : MonoBehaviour
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 },
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0 }
     };
+
+    public static int[,] lockedCellThird = new int[6,13]
+    {
+        {0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0},
+        {0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0},
+        {1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0},
+        {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0},
+        {0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0}
+    };
+
     public static int[,] lockedCellLevel;
     public int LevelNum = 1;
 
@@ -32,7 +43,7 @@ public class MapGlobalFields : MonoBehaviour
 
     private void Awake()
     {
-        var allMaps = new[] {lockedCellFirst,  lockedCellSecond};
+        var allMaps = new[] {lockedCellFirst,  lockedCellSecond, lockedCellThird };
         lockedCellLevel = allMaps[LevelNum - 1];
         allEnemies.Clear();
         lockedCell = DeepCopy<int>(lockedCellLevel);

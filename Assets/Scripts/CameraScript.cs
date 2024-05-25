@@ -14,7 +14,7 @@ public class CameraScript : MonoBehaviour
     public int cost = 100;
     public int healthPoints = 10;
     private bool dead = false;
-    private readonly float upZoomBorder = 7;
+    private readonly float upZoomBorder = 15;
     private readonly float downZoomBorder = 3;
     public int enemyNum = 1;
 
@@ -128,13 +128,22 @@ public class CameraScript : MonoBehaviour
         }
         if (LevelNum == 2)
         {
-            Debug.Log(cellPos);
             if (cellPos.y < -4 || cellPos.y > 1
            || cellPos.x < -8 || cellPos.x > 8
            || MapGlobalFields.lockedCell[cellPos.y + 4, cellPos.x + 8] == 1
            || money < cost)
                 return false;
             MapGlobalFields.lockedCell[cellPos.y + 4, cellPos.x + 8] = 1;
+            return true;
+        }
+        if (LevelNum == 3)
+        {
+            if (cellPos.y < -5 || cellPos.y > 0
+                || cellPos.x < -8 || cellPos.x > 4
+                || MapGlobalFields.lockedCell[cellPos.y + 5, cellPos.x + 8] == 1
+                || money < cost)
+                return false;
+            MapGlobalFields.lockedCell[cellPos.y + 5, cellPos.x + 8] = 1;
             return true;
         }
         return false;
