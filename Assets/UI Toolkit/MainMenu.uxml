@@ -1,12 +1,12 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/main-menu.uss?fileID=7433441132597879392&amp;guid=8db939d811b704c47bc7462908868805&amp;type=3#main-menu" />
-    <ui:VisualElement style="flex-grow: 1;">
-        <ui:VisualElement name="VisualElement" style="flex-grow: 0; align-self: center; height: 30%; width: 100%;">
-            <ui:Label tabindex="-1" text="THREE HUNDRED NUGGETS&#10;THE GAME" parse-escape-sequences="true" display-tooltip-when-elided="true" style="flex-grow: 1; -unity-text-align: middle-center; font-size: 42px;" />
-        </ui:VisualElement>
+    <ui:VisualElement style="flex-grow: 1; background-image: url(&apos;project://database/Assets/Sprites/MainMenu/%D1%84%D0%BE%D0%BD.png?fileID=21300000&amp;guid=9434f7e6382e7f547bd9a8f3fb0b6874&amp;type=3#фон&apos;);">
+        <ui:VisualElement name="VisualElement" style="flex-grow: 0; align-self: center; height: 60%; width: 100%;" />
         <ui:VisualElement name="VisualElement" style="flex-grow: 1; justify-content: space-between; align-items: center;">
-            <ui:Button text="ИГРАТЬ" parse-escape-sequences="true" display-tooltip-when-elided="true" name="PlayButton" class="button" />
-            <ui:Button text="НЕ ИГРАТЬ" parse-escape-sequences="true" display-tooltip-when-elided="true" name="DontPlayButton" class="button" />
+            <ui:VisualElement name="VisualElement" style="flex-grow: 1; width: 27%; justify-content: flex-start;">
+                <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="PlayButton" class="start-button" style="background-color: rgba(255, 255, 255, 0); border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0); height: 38%; margin-bottom: 27px;" />
+                <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="DontPlayButton" class="exit-button" style="background-color: rgba(56, 56, 56, 0); border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0); height: 38%;" />
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

@@ -81341,6 +81341,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd629a05517dbf4b8db31227408d885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: {fileID: 21300000, guid: f200e2c4676509f46b09697844ce4ecf, type: 3}
+  Enemies: {fileID: 21300000, guid: 52c2bce3d27d6cb4eb88c964ccbe17ff, type: 3}
+  Money: {fileID: 21300000, guid: 252df1b24c93e0e438a87c6304f127f3, type: 3}
+  Towers: {fileID: 21300000, guid: 590e34cafa8ea4f4e9764079981e48e0, type: 3}
 --- !u!61 &1644724058
 BoxCollider2D:
   m_ObjectHideFlags: 0

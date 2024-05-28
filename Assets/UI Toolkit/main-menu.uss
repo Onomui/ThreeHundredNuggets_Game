@@ -1,26 +1,25 @@
-.button {
-    background-color: rgb(224, 217, 196);
-    font-size: 28px;
-    width: 62%;
-    margin-top: 0;
-    margin-right: 0;
+.start-button {
+    height: 21%;
     margin-bottom: 0;
-    margin-left: 0;
-    padding-top: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    height: 18%;
-    border-top-left-radius: 18px;
-    border-top-right-radius: 18px;
-    border-bottom-right-radius: 18px;
-    border-bottom-left-radius: 18px;
-    border-top-width: 4px;
-    border-right-width: 4px;
-    border-bottom-width: 4px;
-    border-left-width: 4px;
-    border-left-color: rgb(0, 0, 0);
-    border-right-color: rgb(0, 0, 0);
-    border-top-color: rgb(0, 0, 0);
-    border-bottom-color: rgb(0, 0, 0);
+    background-image: url('project://database/Assets/Sprites/MainMenu/start1.png?fileID=21300000&guid=e2ac096c6f7d783409d90013af2aacea&type=3#start1');
+}
+
+.exit-button {
+    background-image: url('project://database/Assets/Sprites/MainMenu/exit1.png?fileID=21300000&guid=99e411806f9ee894aad4dae8fb6a1875&type=3#exit1');
+}
+
+.start-button:hover {
+    background-image: url('project://database/Assets/Sprites/MainMenu/start2.png?fileID=21300000&guid=f4ac7c771410eb841bef3a28eb20d803&type=3#start2');
+}
+
+.start-button:active {
+    background-image: url('project://database/Assets/Sprites/MainMenu/start3.png?fileID=21300000&guid=ca197c741a8113b4c83eec989731efdc&type=3#start3');
+}
+
+.exit-button:hover {
+    background-image: url('project://database/Assets/Sprites/MainMenu/exit2.png?fileID=21300000&guid=177afff08f5da834f8b5c074027d02e8&type=3#exit2');
+}
+
+.exit-button:active {
+    background-image: url('project://database/Assets/Sprites/MainMenu/exit3.png?fileID=21300000&guid=ab3eb29ea61152240b2590b0f634842c&type=3#exit3');
 }
