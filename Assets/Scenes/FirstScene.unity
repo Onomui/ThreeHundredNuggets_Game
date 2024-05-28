@@ -80783,6 +80783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelNum: 1
+  isSkipRequested: 0
   typingSpeed: 0.025
   tutor: {fileID: 1644724054}
 --- !u!4 &1175383808 stripped

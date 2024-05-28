@@ -182,7 +182,7 @@ MonoBehaviour:
   moneyDrop: 100
   Health: 5
   Damage: 5
-  animName: 
+  animName: BossEnemyDie
 --- !u!95 &-8313396355779516068
 Animator:
   serializedVersion: 5
@@ -217,4 +217,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Popup: {fileID: 9085425070117119678, guid: cbbc3600d493ebf4784ee9dcaddd612c, type: 3}
-  speed: 1
