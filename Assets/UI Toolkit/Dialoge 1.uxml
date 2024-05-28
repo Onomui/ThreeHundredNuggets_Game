@@ -4,7 +4,6 @@
             <ui:VisualElement style="flex-grow: 1; width: auto; height: 100%; flex-direction: row; justify-content: space-between;">
                 <ui:VisualElement name="burgermanPic" style="flex-grow: 0; width: 20%; background-color: rgba(0, 0, 0, 0.46); background-image: url(&apos;project://database/Assets/Sprites/Burgerman.png?fileID=21300000&amp;guid=81154f898da23c345969bcdab871b9e6&amp;type=3#Burgerman&apos;); -unity-background-scale-mode: scale-and-crop; height: 75%; align-self: flex-end; opacity: 1; position: relative; display: flex; visibility: visible; overflow: visible;" />
             </ui:VisualElement>
-            <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="dialogueButton" style="align-self: flex-end; width: 49px; height: 45px; background-image: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=-1087164816274819069&amp;guid=729398ea2006b5845a6f0d4f87de7971&amp;type=3#arrow-right@2x&apos;); background-color: rgb(9, 8, 8); -unity-background-image-tint-color: rgb(255, 255, 255);" />
         </ui:VisualElement>
         <ui:VisualElement style="flex-grow: 1; background-image: none;">
             <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.75);">
