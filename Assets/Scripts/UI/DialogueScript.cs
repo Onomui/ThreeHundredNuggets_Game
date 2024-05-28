@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UIElements;
 using System.Timers;
+using Unity.VisualScripting;
 using UnityEditor;
 
 public class DialogueScript : MonoBehaviour
@@ -13,12 +14,12 @@ public class DialogueScript : MonoBehaviour
     private StringBuilder AnimateText = new();
     private string[] ForFirst = new[]
     {
-        "Доктор Бургермен создает мощного пищевого робота Фастфудиум, способного производить невероятно вкусные и калорийные блюда.\n Он начинает свою миссию по распространению пищевого изобилия среди населения Земли.",
-        "\"Слава и вкус будут править этим миром! Пусть люди окажутся пленниками своих желудков,\n а я буду править ними с помощью моего замечательного Фастфудиума!\n Уахахаахахх, СОСИТЕ КОКА КОЛУ ИЗ МОИХ ТРУБОЧЕК!\""
+        "  Доктор Бургермен создает мощного пищевого робота Фастфудиум, способного производить невероятно вкусные и\n  калорийные блюда. Он начинает свою миссию по распространению пищевого изобилия среди населения Земли.",
+        " \"Слава и вкус будут править этим миром! Пусть люди окажутся пленниками своих желудков,\n  а я буду править ними с помощью моего замечательного Фастфудиума!\n  Уахахаахахх, СОСИТЕ КОКА КОЛУ ИЗ МОИХ ТРУБОЧЕК!\""
     };
     private string[] ForSecond = new[]
     {
-        "Бургермен сталкивается с первыми препятствиями со стороны людей, которые \nхотят сохранить мир и процветание, достигнутые благодаря здоровому образу \nжизни. Он принимает решительные меры против оппонентов, \nчтобы продвинуть свою идеологию ожирения.",
+        "   Бургермен сталкивается с первыми препятствиями со стороны людей, которые \nхотят сохранить мир и процветание, достигнутые благодаря здоровому образу \nжизни. Он принимает решительные меры против оппонентов, \nчтобы продвинуть свою идеологию ожирения.",
         "\"Те, кто осмеливаются противиться моему величию, будут уничтожены в вихре \nкалорийного вкуса! Никто не остановит меня на пути к победе над здоровым \nпитания!\"",
         "\"У тебя не получится захватить власть в этом городе! Спорт сила - ты могила\""
     };
@@ -33,6 +34,8 @@ public class DialogueScript : MonoBehaviour
     private Label dialogueText;
     public int LevelNum = 1;
     private Coroutine displayCoroutine;
+    private bool isTyping = true;
+    public bool isSkipRequested;
     [SerializeField] private float typingSpeed = 1.04f;
 
     [SerializeField] private GameObject tutor;
@@ -48,26 +51,43 @@ public class DialogueScript : MonoBehaviour
         var dialogueButton = root.Q<Button>("dialogueButton");
         dialogueText = root.Q<Label>("dialogueText");
         displayCoroutine = StartCoroutine(DisplayLine(dialogueLines[dialogueLineNum]));
-        dialogueButton.clicked += DialogueButton_clicked;
     }
 
     private IEnumerator DisplayLine(string line)
     {
         dialogueText.text = "";
+        isSkipRequested = false;
         foreach (var letter in line)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (isSkipRequested)
             {
-                StopCoroutine(displayCoroutine);
                 dialogueText.text = dialogueLines[dialogueLineNum];
+                isSkipRequested = false;
                 break;
             }
             dialogueText.text += letter;
             yield return new WaitForSecondsRealtime(typingSpeed);
         }
-    }
-    
 
+        isTyping = false;
+    }
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (!isTyping)
+            {
+                DialogueButton_clicked();
+                isTyping = true; 
+            }
+            else
+                SkipText();
+        }
+    }
+
+    private void SkipText() => isSkipRequested = true;
+    
     private void DialogueButton_clicked()
     {
         StopCoroutine(displayCoroutine);
