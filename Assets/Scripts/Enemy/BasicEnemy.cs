@@ -8,6 +8,7 @@ public class BasicEnemy : MonoBehaviour
     public Transform[] path;
     [SerializeField]
     private float speed;
+    private float startingSpeed;
     private bool freezed = false;
     public int moneyDrop = 10;
     private SpriteRenderer spriteRenderer;
@@ -20,10 +21,12 @@ public class BasicEnemy : MonoBehaviour
     private Animator anim;
     public string animName;
     private bool isAlive = true;
+    private bool freezedAgain = false;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        startingSpeed = speed;
     }
     void Start()
     {
@@ -35,6 +38,7 @@ public class BasicEnemy : MonoBehaviour
     void Update()
     {
         CheckDeath();
+        CheckFreeze();
     }
     private void FixedUpdate()
     {
@@ -69,23 +73,46 @@ public class BasicEnemy : MonoBehaviour
     private IEnumerator RestoreColor()
     {
         yield return new WaitForSeconds(0.2f);
-        spriteRenderer.color = Color.white;
     }
 
     public void Freeze(float duration)
     {
+        if (freezed)
+        {
+            freezedAgain = true;
+        }
         freezed = true;
-        speed /= 2;
-        spriteRenderer.color =new Color(0.38f, 0.75f, 0.9f);
+        
         StartCoroutine(RestoreSpeed(duration));
     }
 
     private IEnumerator RestoreSpeed(float duration)
     {
         yield return new WaitForSeconds(duration);
-        freezed = false;
-        speed *= 2;
-        spriteRenderer.color = Color.white;
+        if (freezedAgain)
+            freezedAgain = false;
+        else
+        {
+            freezed = false;
+
+        }
+    }
+
+    private void CheckFreeze()
+    {
+        if (freezed)
+        {
+            speed = startingSpeed / 2;
+            spriteRenderer.color = new Color(0.38f, 0.75f, 0.9f);
+        }
+
+        else
+        {
+            speed = startingSpeed;
+            spriteRenderer.color = Color.white;
+
+        }
+
     }
 
     private void CheckDeath()
