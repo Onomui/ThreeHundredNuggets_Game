@@ -59,19 +59,19 @@ public class UI : MonoBehaviour
 
 
         buttonBurger.clicked += ButtonBurger_clicked;
-        buttonBurger.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("���� ������� � ������� ������"); });
+        buttonBurger.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("Стреляет одиночными сочными бургерами"); });
         buttonBurger.RegisterCallback<MouseLeaveEvent>((type) => { HideDesctiption(); });
         buttonCola.clicked += ButtonCola_clicked;
-        buttonCola.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("������� ���� �������� ����� �����������"); });
+        buttonCola.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("Стреляет ледяной газировкой и замедляет врагов"); });
         buttonCola.RegisterCallback<MouseLeaveEvent>((type) => { HideDesctiption(); });
         buttonCake.clicked += ButtonCake_clicked;
-        buttonCake.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("�������� ������� ��������� ����� ���� ������"); });
+        buttonCake.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("Стреляет тортом, который взрывается при попадании"); });
         buttonCake.RegisterCallback<MouseLeaveEvent>((type) => { HideDesctiption(); });
         buttonPopcorn.clicked += ButtonPopcorn_clicked;
-        buttonPopcorn.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("����������� �� ��� �������"); });
+        buttonPopcorn.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("Стреляет попкорном во все четыре стороны"); });
         buttonPopcorn.RegisterCallback<MouseLeaveEvent>((type) => { HideDesctiption(); });
         buttonFarm.clicked += ButtonFarm_clicked;
-        buttonFarm.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("����� �������� ������ �� ��������"); });
+        buttonFarm.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("Фармит деньги (+25 каждые 5 секунд)"); });
         buttonFarm.RegisterCallback<MouseLeaveEvent>((type) => { HideDesctiption(); });
         healthBar.highValue = cameraScript.healthPoints;
         healthBar.style.backgroundColor = Color.blue;

@@ -9,7 +9,7 @@ public class FarmTower : MonoBehaviour
     [SerializeField]
     private int coolDown = 5;
     [SerializeField]
-    private int changeMoney = 10;
+    private int changeMoney = 25;
 
     private CameraScript cam;
     private void Start()
