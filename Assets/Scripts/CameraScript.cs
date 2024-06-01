@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class CameraScript : MonoBehaviour
 {
-    private UiUpdateManager uiUpdateManager;
+    public GameObject redScreen;
 
+    private UiUpdateManager uiUpdateManager;
+    private Vector3 initialPosition;
     public GameObject tower;
     public int money = 200;
     public int cost = 100;
@@ -90,6 +92,7 @@ public class CameraScript : MonoBehaviour
     {
         healthPoints -= damage;
         uiUpdateManager.HealthPointsUpdate(healthPoints);
+        OnHit();
     }
 
     public void ChangeMoney(int moneyDelta)
@@ -216,5 +219,38 @@ public class CameraScript : MonoBehaviour
         var zoomDelta = Camera.main.orthographicSize - Input.mouseScrollDelta.y * Time.deltaTime * scrollSpeed;
         if (zoomDelta < upZoomBorder && zoomDelta > downZoomBorder)
             Camera.main.orthographicSize = zoomDelta;
+    }
+
+    public void OnHit()
+    {
+        redScreen.GetComponent<Image>().color = new Color(1, 0, 0, 0.3f);
+        var alpha = 0.3f;
+        StartCoroutine(Fade(alpha));
+
+        initialPosition = transform.position;
+        InvokeRepeating("DoShake", 0, 0.1f);
+        Invoke("StopShake", 0.5f);
+    }
+
+    private IEnumerator Fade(float alpha)
+    {
+        alpha -= 0.05f;
+        yield return new WaitForSeconds(0.1f);
+        redScreen.GetComponent<Image>().color = new Color(1, 0, 0, alpha);
+        if (alpha > 0)
+            StartCoroutine(Fade(alpha));
+    }
+
+    void DoShake()
+    {
+        float offsetX = UnityEngine.Random.Range(-0.1f, 0.1f);
+        float offsetY = UnityEngine.Random.Range(-0.1f, 0.1f);
+        transform.position = new Vector3(initialPosition.x + offsetX, initialPosition.y + offsetY, initialPosition.z);
+    }
+
+    void StopShake()
+    {
+        CancelInvoke("DoShake");
+        transform.position = initialPosition;
     }
 }
