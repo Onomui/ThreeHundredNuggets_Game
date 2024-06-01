@@ -643,6 +643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelNum: 2
+  isSkipRequested: 0
   typingSpeed: 0.025
   tutor: {fileID: 0}
 --- !u!114 &340370200
@@ -2069,7 +2070,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7.27
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
