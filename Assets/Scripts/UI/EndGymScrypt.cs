@@ -18,7 +18,6 @@ public class EndGymScrypt : MonoBehaviour
         {
             var enemyScript = collision.GetComponent<BasicEnemy>();
             cameraScript.DealDamage(enemyScript.Damage);
-            enemyScript.KillEnemy();
         }
     }
 }

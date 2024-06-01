@@ -645,6 +645,7 @@ MonoBehaviour:
   LevelNum: 2
   isSkipRequested: 0
   typingSpeed: 0.025
+  egorPic: {fileID: 0}
   tutor: {fileID: 0}
 --- !u!114 &340370200
 MonoBehaviour:
@@ -2070,7 +2071,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.27
+  orthographic size: 7.6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2095,7 +2096,7 @@ Transform:
   m_GameObject: {fileID: 714929026}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -2.68, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2125,7 +2126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5455108377793712902, guid: 3911d9c2c38194b4db399893109c9250, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.56
+      value: 5.2
       objectReference: {fileID: 0}
     - target: {fileID: 5455108377793712902, guid: 3911d9c2c38194b4db399893109c9250, type: 3}
       propertyPath: m_LocalPosition.z

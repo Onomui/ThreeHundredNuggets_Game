@@ -51,7 +51,7 @@ public class BasicEnemy : MonoBehaviour
     private void MoveOnPath()
     {
         if (curPathPoint == path.Length)
-            isStopped = true;
+            JustKill();
         else
         {
             transform.position = Vector2.MoveTowards(transform.position, path[curPathPoint].position, speed * Time.deltaTime);
@@ -134,6 +134,13 @@ public class BasicEnemy : MonoBehaviour
         anim.Play($"Base Layer.{animName}", 0);
         GetComponent<EnemySpawnPopup>().SpawnAndMovePopup();
         yield return new WaitForSeconds(0.4f);
+        Destroy(gameObject);
+    }
+
+    private void JustKill()
+    {
+        MapGlobalFields.allEnemies.Remove(gameObject);
+        Camera.main.GetComponent<CameraScript>().HandleEnemyDeath();
         Destroy(gameObject);
     }
 }
