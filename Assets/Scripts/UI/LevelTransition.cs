@@ -9,7 +9,7 @@ public class LevelTransition : MonoBehaviour
     [SerializeField] private GameObject VictoryScreen;
     [SerializeField] private GameObject GameOverScreen;
     [SerializeField] private GameObject TutorialScreen;
-
+    
     public void ChangeDialogueScreen()
     {
         DialogueScreen.SetActive(true);

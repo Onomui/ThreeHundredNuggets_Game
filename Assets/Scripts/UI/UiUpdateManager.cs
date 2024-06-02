@@ -36,7 +36,7 @@ public class UiUpdateManager : MonoBehaviour
     {
         uiScript.SetHealthBar(healthPoints);
     }
-
+    
     public void MoneyUpdate(int money)
     {
         uiScript.SetMoneyText(money);
