@@ -2165,7 +2165,7 @@ MonoBehaviour:
   money: 100
   cost: 100
   healthPoints: 20
-  enemyNum: 20
+  enemyNum: 36
   tilemap: {fileID: 1460578489}
   LevelNum: 2
   moveAmount: 12
@@ -83814,6 +83814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerSpawnSound: {fileID: 8300000, guid: 7ab702930ebd6714eb72b080aca58db1, type: 3}
   bgAudioClip: {fileID: 8300000, guid: 52e2b09a7eb9936499bca8c573b11228, type: 3}
+  bgMusic: {fileID: 0}
   gameOverSound: {fileID: 8300000, guid: 0d57dadd549dee743b4ffbaebbbb174d, type: 3}
 --- !u!4 &1729178424
 Transform:

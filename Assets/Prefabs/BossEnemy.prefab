@@ -180,7 +180,7 @@ MonoBehaviour:
   - {fileID: 0}
   speed: 3
   moneyDrop: 100
-  Health: 5
+  Health: 20
   Damage: 5
   animName: BossEnemyDie
 --- !u!95 &-8313396355779516068
