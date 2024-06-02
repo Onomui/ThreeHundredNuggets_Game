@@ -36,6 +36,7 @@ public class CameraScript : MonoBehaviour
     private SoundManager soundManager;
 
     public GameObject Ui;
+    public GameObject Tutor;
     private UI uiScript;
     private GameObject alphaTower;
     private Vector3 mousePos;
@@ -68,7 +69,7 @@ public class CameraScript : MonoBehaviour
         {
             CheckVictory();
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && Ui.activeSelf && (Tutor == null || !Tutor.activeSelf))
         {
             Time.timeScale = (Time.timeScale + 1) % 2;
         }

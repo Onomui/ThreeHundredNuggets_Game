@@ -36,6 +36,8 @@ public class UI : MonoBehaviour
     private ProgressBar healthBar;
     private Label description;
 
+    private AudioSource clickedAudio;
+
     private UiUpdateManager uiUpdateManager;
     private void OnEnable()
     {
@@ -56,7 +58,7 @@ public class UI : MonoBehaviour
         healthBar = root.Q<ProgressBar>("healthBar");
         description = root.Q<Label>("Description");
         
-
+        clickedAudio = GetComponent<AudioSource>();
 
         buttonBurger.clicked += ButtonBurger_clicked;
         buttonBurger.RegisterCallback<MouseEnterEvent>((type) => { ShowDescription("Стреляет одиночными сочными бургерами"); });
@@ -119,6 +121,7 @@ public class UI : MonoBehaviour
 
     private void Button_clicked(GameObject tower, int cost, Sprite sprite)
     {
+        clickedAudio.Play();
         cameraScript.tower = tower;
         cameraScript.cost = cost;
         pic.style.backgroundImage = new StyleBackground(sprite);
