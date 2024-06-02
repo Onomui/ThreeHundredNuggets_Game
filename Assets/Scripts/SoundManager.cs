@@ -9,7 +9,7 @@ public class SoundManager : MonoBehaviour
     private AudioClip towerSpawnSound;
     [SerializeField]
     private AudioClip bgAudioClip;
-    private AudioSource bgMusic;
+    public AudioSource bgMusic;
     [SerializeField]
     private AudioClip gameOverSound;
 
@@ -32,6 +32,7 @@ public class SoundManager : MonoBehaviour
         audioSource.volume = 0.02f;
         audioSource.PlayOneShot(bgAudioClip);
     }
+    
     public void PlayGameOver()
     {
         GameObject soundGameObject = new GameObject("gameOverSound");

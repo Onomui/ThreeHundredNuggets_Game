@@ -11,6 +11,7 @@ public class CameraScript : MonoBehaviour
 
     private UiUpdateManager uiUpdateManager;
     private Vector3 initialPosition;
+    private DialogueScript dialogueScript;
     public GameObject tower;
     public int money = 200;
     public int cost = 100;
@@ -20,19 +21,15 @@ public class CameraScript : MonoBehaviour
     private readonly float downZoomBorder = 3;
     public int enemyNum = 1;
 
-    [SerializeField]
-    private Tilemap tilemap;
+    [SerializeField] private Tilemap tilemap;
 
     public int LevelNum = 1;
 
-    [SerializeField]
-    private float moveAmount = 2f;
+    [SerializeField] private float moveAmount = 2f;
     private Vector3 cameraMove;
-    [SerializeField]
-    private float scrollSpeed = 20f;
+    [SerializeField] private float scrollSpeed = 20f;
 
-    [SerializeField]
-    private GameObject soundManagerObject;
+    [SerializeField] private GameObject soundManagerObject;
     private SoundManager soundManager;
 
     public GameObject Ui;
@@ -40,12 +37,15 @@ public class CameraScript : MonoBehaviour
     private UI uiScript;
     private GameObject alphaTower;
     private Vector3 mousePos;
+    private bool bgMusicIsPlaying = true;
+
+    private bool isPaused;
 
     private void Start()
     {
         uiScript = Ui.GetComponent<UI>();
         uiUpdateManager = GetComponent<UiUpdateManager>();
-
+        
         soundManager = soundManagerObject.GetComponent<SoundManager>();
     }
 
@@ -79,6 +79,20 @@ public class CameraScript : MonoBehaviour
             var cellPos = tilemap.WorldToCell(mousePos);
             if (PlaceOnGrid(cellPos, false))
                 alphaTower.transform.position = tilemap.GetCellCenterWorld(cellPos);
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            if (bgMusicIsPlaying)
+            {
+                soundManager.bgMusic.volume = 0f;
+                bgMusicIsPlaying = false;
+            }
+            else
+            {
+                soundManager.bgMusic.volume = 0.02f;
+                bgMusicIsPlaying = true;
+            }
         }
 
     }

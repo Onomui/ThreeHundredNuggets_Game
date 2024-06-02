@@ -29,8 +29,11 @@ public class FrozenTower : MonoBehaviour
     private void LookAtNearestEnemy()
     {
         vectorToTarget = FindNeatestEnemy();
-        float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle - 90);
+        if (vectorToTarget != Vector2.zero)
+        {
+            float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle-90);
+        }
     }
 
     private Vector2 FindNeatestEnemy()
