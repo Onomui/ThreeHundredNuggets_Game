@@ -14,15 +14,18 @@ public class TutorialScript : MonoBehaviour
     private Sprite[] slides;
 
     private int i = 1;
+
     private void Awake()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
 
         bg = root.Q<VisualElement>("Bg");
-        slides = new Sprite[] {Health, Enemies, Money, Towers};
+        slides = new Sprite[] { Health, Enemies, Money, Towers };
     }
-    private void OnMouseDown()
+
+    private void SkipTutor()
     {
+
         if (i <= 3)
         {
             bg.style.backgroundImage = new StyleBackground(slides[i]);
@@ -32,5 +35,12 @@ public class TutorialScript : MonoBehaviour
         {
             Camera.main.GetComponent<UiUpdateManager>().ChangeScreen("unTutor");
         }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
+            SkipTutor();
+        
     }
 }

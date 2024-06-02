@@ -42,12 +42,12 @@ public class DialogueScript : MonoBehaviour
     public bool isSkipRequested;
     [SerializeField] private float typingSpeed = 1.04f;
     public Sprite egorPic;
+    private gameOverScript gameOver;
 
     [SerializeField] private GameObject tutor;
     private void OnEnable()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
-
         enemyPic = root.Q<VisualElement>("enemyPic");
         if (LevelNum == 3)
             enemyPic.style.backgroundImage = new StyleBackground(egorPic);
@@ -82,7 +82,7 @@ public class DialogueScript : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             if (!isTyping)
             {
