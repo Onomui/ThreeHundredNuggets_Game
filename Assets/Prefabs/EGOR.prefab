@@ -180,7 +180,7 @@ MonoBehaviour:
   - {fileID: 0}
   speed: 1
   moneyDrop: 500
-  Health: 20
+  Health: 35
   Damage: 10
   animName: EgorDie
 --- !u!95 &-5379115362877569069
@@ -217,4 +217,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Popup: {fileID: 9085425070117119678, guid: cbbc3600d493ebf4784ee9dcaddd612c, type: 3}
-  speed: 1

@@ -31,11 +31,14 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField]
     private float gameSpeed = 1;
 
+    private int levelNum;
+
     private int enemyNumToSpawn;
     void Start()
     {
-        SetUpEnemyStack();
         enemyNumToSpawn = Camera.main.GetComponent<CameraScript>().enemyNum;
+        levelNum = Camera.main.GetComponent<CameraScript>().LevelNum;
+        SetUpEnemyStack();
         StartCoroutine(SpawnEnemy(basicEnemy, respawnTimer));
     }
 
@@ -95,26 +98,141 @@ public class EnemySpawn : MonoBehaviour
 
     private void SetUpEnemyStack()
     {
-        enemyStack.Push(EGOR);
-        enemyStack.Push(speedEnemy);
-        enemyStack.Push(basicEnemy);
-        enemyStack.Push(bossEnemy);
-        enemyStack.Push(speedEnemy);
-        enemyStack.Push(basicEnemy);
-        enemyStack.Push(basicEnemy);
-        enemyStack.Push(speedEnemy);
-        enemyStack.Push(basicEnemy);
-        enemyStack.Push(bossEnemy);
-        enemyStack.Push(basicEnemy);
-        enemyStack.Push(speedEnemy);
-        enemyStack.Push(basicEnemy);
-        enemyStack.Push(speedEnemy);
-        enemyStack.Push(basicEnemy);
-        enemyStack.Push(speedEnemy);
-        enemyStack.Push(basicEnemy);
-        enemyStack.Push(basicEnemy);
-        enemyStack.Push(basicEnemy);
-        enemyStack.Push(basicEnemy);
+        if (levelNum == 1)
+        {
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(basicEnemy);
+        }
 
+        if (levelNum == 2)
+        {
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
+        }
+
+        if (levelNum == 3)
+        {
+            enemyStack.Push(EGOR);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
+        }
     }
 }

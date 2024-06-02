@@ -180,7 +180,7 @@ MonoBehaviour:
   - {fileID: 0}
   speed: 5
   moneyDrop: 20
-  Health: 1
+  Health: 6
   Damage: 1
   animName: SkinnyEnemyDie
 --- !u!95 &-2929102238176384096
@@ -217,4 +217,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Popup: {fileID: 9085425070117119678, guid: cbbc3600d493ebf4784ee9dcaddd612c, type: 3}
-  speed: 1
