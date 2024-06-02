@@ -39,7 +39,7 @@ public class CameraScript : MonoBehaviour
     private Vector3 mousePos;
     private bool bgMusicIsPlaying = true;
 
-    private bool isPaused;
+    public GameObject PauseMenu;
 
     private void Start()
     {
@@ -71,7 +71,12 @@ public class CameraScript : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape) && Ui.activeSelf && (Tutor == null || !Tutor.activeSelf))
         {
-            Time.timeScale = (Time.timeScale + 1) % 2;
+            if (!PauseMenu.activeSelf)
+                Pause();
+            else
+            {
+                Unpause();
+            }
         }
 
         if (alphaTower != null)
@@ -81,20 +86,33 @@ public class CameraScript : MonoBehaviour
                 alphaTower.transform.position = tilemap.GetCellCenterWorld(cellPos);
         }
 
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            if (bgMusicIsPlaying)
-            {
-                soundManager.bgMusic.volume = 0f;
-                bgMusicIsPlaying = false;
-            }
-            else
-            {
-                soundManager.bgMusic.volume = 0.02f;
-                bgMusicIsPlaying = true;
-            }
-        }
 
+    }
+
+    public void Mute()
+    {
+        if (bgMusicIsPlaying)
+        {
+            soundManager.bgMusic.volume = 0f;
+            bgMusicIsPlaying = false;
+        }
+        else
+        {
+            soundManager.bgMusic.volume = 0.02f;
+            bgMusicIsPlaying = true;
+        }
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0f;
+        PauseMenu.SetActive(true);
+    }
+
+    public void Unpause()
+    {
+        Time.timeScale = 1f;
+        PauseMenu.SetActive(false);
     }
 
     public void HandleEnemyDeath()
