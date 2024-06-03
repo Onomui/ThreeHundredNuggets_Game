@@ -9,6 +9,7 @@ public class LevelTransition : MonoBehaviour
     [SerializeField] private GameObject VictoryScreen;
     [SerializeField] private GameObject GameOverScreen;
     [SerializeField] private GameObject TutorialScreen;
+    [SerializeField] private GameObject FinalScreen;
     
     public void ChangeDialogueScreen()
     {
@@ -48,5 +49,12 @@ public class LevelTransition : MonoBehaviour
         Time.timeScale = 1;
         DialogueScreen.SetActive(false);
         Hud.SetActive(true);
+    }
+
+    public void ChangeFinalScene()
+    {
+        Time.timeScale = 0f;
+        Hud.SetActive(false);
+        FinalScreen.SetActive(true);
     }
 }

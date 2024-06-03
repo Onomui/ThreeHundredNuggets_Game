@@ -146,10 +146,13 @@ public class CameraScript : MonoBehaviour
 
     private void CheckVictory()
     {
-        if (MapGlobalFields.allEnemies.Count == 0 && enemyNum == 0)
+        if (MapGlobalFields.allEnemies.Count == 0 && enemyNum == 0 && LevelNum != 3)
         {
             uiUpdateManager.ChangeScreen("victory");
         }
+        
+        if (LevelNum == 3 && MapGlobalFields.allEnemies.Count == 0 && enemyNum == 0)
+            uiUpdateManager.ChangeScreen("final");
     }
 
     private void SpawnOnClick()

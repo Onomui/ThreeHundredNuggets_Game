@@ -62,6 +62,9 @@ public class UiUpdateManager : MonoBehaviour
             case "unTutor":
                 levelTransition.TurnOfTutorialScreen();
                 break;
+            case "final":
+                levelTransition.ChangeFinalScene();
+                break;
             default:
                 Debug.Log("WRONG SCREEN TRANSITION NAME");
                 break;
