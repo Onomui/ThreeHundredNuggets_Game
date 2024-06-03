@@ -16,7 +16,7 @@ public class FinalScript : MonoBehaviour
     private string[] ForFirst = new[]
     {
         "   *Для доктора БургерМена настал счастливый конец,\nон все также кормил всех людей своими бургерами.\nПоначалу все было хорошо, но со временем люди стали\nстрадать от всяческих болезней, постепенно вымирая.",
-        "   Человечеству осталось надеяться только на то,\n что на замену зловещему диктатору придет герой, продвигающий здоровое питание.*"
+        "   Человечеству осталось надеяться только на то,\n что на замену зловещему диктатору придет герой,\nпродвигающий здоровое питание.*"
     };
     
     private string[] dialogueLines;
@@ -88,6 +88,9 @@ public class FinalScript : MonoBehaviour
         {
             SceneManager.LoadScene("MainMenu");
         }
-        displayCoroutine = StartCoroutine(DisplayLine(dialogueLines[dialogueLineNum]));
+        else
+        {
+            displayCoroutine = StartCoroutine(DisplayLine(dialogueLines[dialogueLineNum]));
+        }
     }
 }

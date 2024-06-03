@@ -2134,6 +2134,7 @@ MonoBehaviour:
   VictoryScreen: {fileID: 57914435}
   GameOverScreen: {fileID: 2014595552}
   TutorialScreen: {fileID: 0}
+  FinalScreen: {fileID: 0}
 --- !u!114 &714929030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5538,10 +5539,10 @@ MonoBehaviour:
   - {fileID: 549660007}
   - {fileID: 219168657}
   - {fileID: 1918228528}
-  respawnTimer: 2
-  spawnDecrease: 0.2
-  spawnTimeLimit: 0.5
-  gameSpeed: 0.5
+  respawnTimer: 3
+  spawnDecrease: 0.125
+  spawnTimeLimit: 1
+  gameSpeed: 1
 --- !u!4 &1100020595
 Transform:
   m_ObjectHideFlags: 0

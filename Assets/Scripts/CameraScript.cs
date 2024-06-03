@@ -17,6 +17,7 @@ public class CameraScript : MonoBehaviour
     public int cost = 100;
     public int healthPoints = 10;
     private bool dead = false;
+    private bool win = false;
     private readonly float upZoomBorder = 15;
     private readonly float downZoomBorder = 3;
     public int enemyNum = 1;
@@ -40,6 +41,7 @@ public class CameraScript : MonoBehaviour
     private bool bgMusicIsPlaying = true;
 
     public GameObject PauseMenu;
+
 
     private void Start()
     {
@@ -105,12 +107,14 @@ public class CameraScript : MonoBehaviour
 
     public void Pause()
     {
+        uiUpdateManager.isOnButton = true;
         Time.timeScale = 0f;
         PauseMenu.SetActive(true);
     }
 
     public void Unpause()
     {
+        uiUpdateManager.isOnButton = false;
         Time.timeScale = 1f;
         PauseMenu.SetActive(false);
     }
@@ -146,13 +150,19 @@ public class CameraScript : MonoBehaviour
 
     private void CheckVictory()
     {
-        if (MapGlobalFields.allEnemies.Count == 0 && enemyNum == 0 && LevelNum != 3)
+        if (MapGlobalFields.allEnemies.Count == 0 && enemyNum == 0 && LevelNum != 3 && !win)
         {
+            win = true;
+            soundManager.PlayVictory();
             uiUpdateManager.ChangeScreen("victory");
         }
         
-        if (LevelNum == 3 && MapGlobalFields.allEnemies.Count == 0 && enemyNum == 0)
+        if (LevelNum == 3 && MapGlobalFields.allEnemies.Count == 0 && enemyNum == 0 && !win)
+        {
+            win = true;
+            soundManager.PlayVictory();
             uiUpdateManager.ChangeScreen("final");
+        }
     }
 
     private void SpawnOnClick()

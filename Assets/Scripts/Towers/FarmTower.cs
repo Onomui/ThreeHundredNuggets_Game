@@ -7,7 +7,7 @@ using UnityEngine;
 public class FarmTower : MonoBehaviour
 {
     [SerializeField]
-    private int coolDown = 5;
+    private float coolDown = 5;
     [SerializeField]
     private int changeMoney = 25;
 

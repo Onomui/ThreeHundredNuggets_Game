@@ -12,6 +12,8 @@ public class SoundManager : MonoBehaviour
     public AudioSource bgMusic;
     [SerializeField]
     private AudioClip gameOverSound;
+    [SerializeField]
+    private AudioClip victorySound;
 
     private void Start()
     {
@@ -38,7 +40,16 @@ public class SoundManager : MonoBehaviour
         GameObject soundGameObject = new GameObject("gameOverSound");
         AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
         bgMusic.enabled = false;
+        audioSource.volume = 0.2f;
         audioSource.PlayOneShot(gameOverSound);
+    }
 
+    public void PlayVictory()
+    {
+        GameObject soundGameObject = new GameObject("victorySound");
+        AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
+        bgMusic.enabled = false;
+        audioSource.volume = 0.2f;
+        audioSource.PlayOneShot(victorySound);
     }
 }

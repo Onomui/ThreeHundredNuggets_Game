@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BasicEnemy : MonoBehaviour
 {
+
     public Transform[] path;
     [SerializeField]
     private float speed;
@@ -12,6 +13,7 @@ public class BasicEnemy : MonoBehaviour
     private bool freezed = false;
     public int moneyDrop = 10;
     private SpriteRenderer spriteRenderer;
+    private bool damaged = false;
     private int curPathPoint = 1;
     private bool isStopped = false;
 
@@ -65,7 +67,7 @@ public class BasicEnemy : MonoBehaviour
         Health -= damage;
         if (!freezed && Health >= 1)
         {
-            spriteRenderer.color = Color.red;
+            damaged = true;
             StartCoroutine(RestoreColor());
         }
     }
@@ -73,6 +75,7 @@ public class BasicEnemy : MonoBehaviour
     private IEnumerator RestoreColor()
     {
         yield return new WaitForSeconds(0.2f);
+        damaged = false;
     }
 
     public void Freeze(float duration)
@@ -109,7 +112,10 @@ public class BasicEnemy : MonoBehaviour
         else
         {
             speed = startingSpeed;
-            spriteRenderer.color = Color.white;
+            if (damaged)
+                spriteRenderer.color = Color.red;
+            else
+                spriteRenderer.color = Color.white;
 
         }
 

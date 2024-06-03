@@ -179,8 +179,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   speed: 5
-  moneyDrop: 20
-  Health: 6
+  moneyDrop: 50
+  Health: 8
   Damage: 1
   animName: SkinnyEnemyDie
 --- !u!95 &-2929102238176384096

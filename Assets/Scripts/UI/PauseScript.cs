@@ -27,9 +27,10 @@ public class PauseScript : MonoBehaviour
             soundButton.clicked += SoundButton_clicked;
             mainMenuButton.clicked += MainMenuButton_clicked;
             exitButton.clicked += ExitButton_clicked;
+
         }
-        
-}
+
+    }
 
     private void ExitButton_clicked()
     {

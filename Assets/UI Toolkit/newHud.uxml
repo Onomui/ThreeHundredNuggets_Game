@@ -33,7 +33,7 @@
                 </ui:Button>
                 <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="ButtonCake" class="tower-article">
                     <ui:VisualElement class="tower-button" style="background-image: url(&apos;project://database/Assets/Sprites/CakeBullet.png?fileID=21300000&amp;guid=116b57d69898cdf44b5bfc9dc9fa7079&amp;type=3#CakeBullet&apos;);" />
-                    <ui:Label tabindex="-1" text="300" parse-escape-sequences="true" display-tooltip-when-elided="true" class="tower-text" />
+                    <ui:Label tabindex="-1" text="400" parse-escape-sequences="true" display-tooltip-when-elided="true" class="tower-text" />
                 </ui:Button>
                 <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="ButtonPopcorn" class="tower-article">
                     <ui:VisualElement class="tower-button" style="background-image: url(&apos;project://database/Assets/Sprites/PopCorn%20Bullet.png?fileID=21300000&amp;guid=170949c0b7e629d49952e3c8c75d4877&amp;type=3#PopCorn Bullet&apos;);" />
@@ -41,7 +41,7 @@
                 </ui:Button>
                 <ui:Button parse-escape-sequences="true" display-tooltip-when-elided="true" name="ButtonFarm" class="tower-article">
                     <ui:VisualElement class="tower-button" style="background-image: url(&apos;project://database/Assets/Sprites/acetone-202452-232419-643.png?fileID=21300000&amp;guid=70c0e04b5084dab498a13d5150ee233b&amp;type=3#acetone-202452-232419-643&apos;);" />
-                    <ui:Label tabindex="-1" text="100" parse-escape-sequences="true" display-tooltip-when-elided="true" class="tower-text" />
+                    <ui:Label tabindex="-1" text="50" parse-escape-sequences="true" display-tooltip-when-elided="true" class="tower-text" />
                 </ui:Button>
             </ui:VisualElement>
         </ui:VisualElement>

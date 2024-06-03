@@ -39,10 +39,10 @@ public class EnemySpawn : MonoBehaviour
         enemyNumToSpawn = Camera.main.GetComponent<CameraScript>().enemyNum;
         levelNum = Camera.main.GetComponent<CameraScript>().LevelNum;
         SetUpEnemyStack();
-        StartCoroutine(SpawnEnemy(basicEnemy, respawnTimer));
+        StartCoroutine(SpawnEnemy(basicEnemy));
     }
 
-    private IEnumerator SpawnEnemy(GameObject enemy, float respawnTimer)
+    private IEnumerator SpawnEnemy(GameObject enemy)
     {
         var newEnemy = Instantiate(enemy);
         enemyNumToSpawn--;
@@ -51,12 +51,12 @@ public class EnemySpawn : MonoBehaviour
         MapGlobalFields.allEnemies.Add(newEnemy);
 
         yield return new WaitForSeconds(respawnTimer);
-
+        Debug.Log(respawnTimer);
         if (respawnTimer >= spawnTimeLimit)
             StartCoroutine(SpawnRateUp());
 
         if (enemyNumToSpawn > 0)
-            StartCoroutine(SpawnEnemy(ChooseFromStack(), respawnTimer));
+            StartCoroutine(SpawnEnemy(ChooseFromStack()));
     }
 
     private IEnumerator SpawnRateUp()
@@ -76,20 +76,6 @@ public class EnemySpawn : MonoBehaviour
         return path;
     }
 
-    private GameObject ChooseEnemyRandomly()
-    {
-        var i = Random.Range(0, 101);
-        switch (i)
-        {
-            case < 50:
-                return basicEnemy;
-            case < 90:
-                return speedEnemy;
-            case 100:
-                return EGOR;
-            default: return bossEnemy;
-        }
-    }
 
     private GameObject ChooseFromStack()
     {
@@ -100,19 +86,19 @@ public class EnemySpawn : MonoBehaviour
     {
         if (levelNum == 1)
         {
+            enemyStack.Push(speedEnemy);
             enemyStack.Push(basicEnemy);
             enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
             enemyStack.Push(basicEnemy);
             enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
             enemyStack.Push(basicEnemy);
             enemyStack.Push(basicEnemy);
-            enemyStack.Push(basicEnemy);
-            enemyStack.Push(basicEnemy);
-            enemyStack.Push(basicEnemy);
-            enemyStack.Push(basicEnemy);
-            enemyStack.Push(basicEnemy);
-            enemyStack.Push(basicEnemy);
-            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
             enemyStack.Push(basicEnemy);
             enemyStack.Push(basicEnemy);
             enemyStack.Push(speedEnemy);
@@ -150,8 +136,8 @@ public class EnemySpawn : MonoBehaviour
             enemyStack.Push(basicEnemy);
             enemyStack.Push(speedEnemy);
             enemyStack.Push(bossEnemy);
-            enemyStack.Push(speedEnemy);
-            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(basicEnemy);
             enemyStack.Push(speedEnemy);
             enemyStack.Push(speedEnemy);
             enemyStack.Push(basicEnemy);
@@ -159,14 +145,34 @@ public class EnemySpawn : MonoBehaviour
             enemyStack.Push(basicEnemy);
             enemyStack.Push(speedEnemy);
             enemyStack.Push(basicEnemy);
-            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
         }
 
         if (levelNum == 3)
         {
             enemyStack.Push(EGOR);
+            enemyStack.Push(bossEnemy);
             enemyStack.Push(speedEnemy);
             enemyStack.Push(basicEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(EGOR);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(EGOR);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(EGOR);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(EGOR);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
+            enemyStack.Push(bossEnemy);
+            enemyStack.Push(EGOR);
             enemyStack.Push(bossEnemy);
             enemyStack.Push(speedEnemy);
             enemyStack.Push(basicEnemy);

@@ -180,7 +180,7 @@ MonoBehaviour:
   - {fileID: 0}
   speed: 2
   moneyDrop: 30
-  Health: 2
+  Health: 4
   Damage: 1
   animName: BasicEnemyDie
 --- !u!95 &7269372578019874015

@@ -77775,7 +77775,7 @@ MonoBehaviour:
   money: 100
   cost: 100
   healthPoints: 20
-  enemyNum: 20
+  enemyNum: 1
   tilemap: {fileID: 95585413}
   LevelNum: 1
   moveAmount: 12
@@ -77801,6 +77801,7 @@ MonoBehaviour:
   VictoryScreen: {fileID: 1256005663}
   GameOverScreen: {fileID: 1593992342}
   TutorialScreen: {fileID: 1644724054}
+  FinalScreen: {fileID: 0}
 --- !u!114 &519420035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80693,9 +80694,9 @@ MonoBehaviour:
   - {fileID: 1446241552}
   - {fileID: 164666462}
   secondPath: []
-  respawnTimer: 2
-  spawnDecrease: 0.1
-  spawnTimeLimit: 0.5
+  respawnTimer: 3
+  spawnDecrease: 0.125
+  spawnTimeLimit: 1
   gameSpeed: 1
 --- !u!4 &837609931 stripped
 Transform:
@@ -82044,7 +82045,7 @@ Transform:
   m_GameObject: {fileID: 2113719699}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.07, y: 4.13, z: 0}
+  m_LocalPosition: {x: 5.97, y: 4.27, z: 0}
   m_LocalScale: {x: 0.488, y: 0.488, z: 0.488}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -82095,6 +82096,7 @@ MonoBehaviour:
   bgAudioClip: {fileID: 8300000, guid: 52e2b09a7eb9936499bca8c573b11228, type: 3}
   bgMusic: {fileID: 0}
   gameOverSound: {fileID: 8300000, guid: 0d57dadd549dee743b4ffbaebbbb174d, type: 3}
+  victorySound: {fileID: 8300000, guid: aa65575d41ac400469d1177641bb1a11, type: 3}
 --- !u!4 &2129955201
 Transform:
   m_ObjectHideFlags: 0

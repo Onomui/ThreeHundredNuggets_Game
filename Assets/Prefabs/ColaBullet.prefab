@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 0.5
   bulletLifeTime: 3
-  freezeTime: 1.8
+  freezeTime: 0.9
 --- !u!61 &1516824031294853340
 BoxCollider2D:
   m_ObjectHideFlags: 0

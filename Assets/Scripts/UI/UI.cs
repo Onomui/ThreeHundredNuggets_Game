@@ -96,7 +96,7 @@ public class UI : MonoBehaviour
 
     private void ButtonFarm_clicked()
     {
-        Button_clicked(farmTower, 100, farmTowerSprite);
+        Button_clicked(farmTower, 50, farmTowerSprite);
     }
 
     private void ButtonPopcorn_clicked()
@@ -116,7 +116,7 @@ public class UI : MonoBehaviour
 
     private void ButtonCake_clicked()
     {
-        Button_clicked(cakeTower, 300, cakeTowerSprite);
+        Button_clicked(cakeTower, 400, cakeTowerSprite);
     }
 
     private void Button_clicked(GameObject tower, int cost, Sprite sprite)

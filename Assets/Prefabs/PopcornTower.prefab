@@ -98,4 +98,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 916862224480199351, guid: a2ad28a7e923d1a44b9d8333f978dd90, type: 3}
-  fireRate: 1
+  fireRate: 0.25
