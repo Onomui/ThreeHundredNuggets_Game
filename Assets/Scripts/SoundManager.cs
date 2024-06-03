@@ -32,10 +32,11 @@ public class SoundManager : MonoBehaviour
         bgMusic = audioSource;
         audioSource.loop = true;
         audioSource.volume = 0.02f;
-        audioSource.PlayOneShot(bgAudioClip);
+        audioSource.clip = bgAudioClip; 
+        audioSource.Play();
     }
-    
-    public void PlayGameOver()
+
+        public void PlayGameOver()
     {
         GameObject soundGameObject = new GameObject("gameOverSound");
         AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();

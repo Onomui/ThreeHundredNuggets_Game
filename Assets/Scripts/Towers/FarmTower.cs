@@ -10,10 +10,12 @@ public class FarmTower : MonoBehaviour
     private float coolDown = 5;
     [SerializeField]
     private int changeMoney = 25;
+    private TowerPopup popup;
 
     private CameraScript cam;
     private void Start()
     {
+        popup = GetComponent<TowerPopup>();
         cam = Camera.main.GetComponent<CameraScript>();
         StartCoroutine(AddMoney());
     }
@@ -23,5 +25,6 @@ public class FarmTower : MonoBehaviour
         yield return new WaitForSeconds(coolDown);
         cam.ChangeMoney(changeMoney);
         StartCoroutine(AddMoney());
+        popup.SpawnAndMovePopup();
     }
 }

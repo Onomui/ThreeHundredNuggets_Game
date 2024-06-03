@@ -18,7 +18,7 @@ public class gameOverScript : MonoBehaviour
         mainMenuButton.clicked += MainMenu_clicked;
     }
 
-    private void RestartButton_clicked()
+    public void RestartButton_clicked()
     {
         LoadScene();
         Time.timeScale = 1;

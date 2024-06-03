@@ -161,7 +161,7 @@ public class CameraScript : MonoBehaviour
         {
             win = true;
             soundManager.PlayVictory();
-            uiUpdateManager.ChangeScreen("final");
+            uiUpdateManager.ChangeScreen("win");
         }
     }
 

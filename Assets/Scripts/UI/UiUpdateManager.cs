@@ -62,6 +62,9 @@ public class UiUpdateManager : MonoBehaviour
             case "unTutor":
                 levelTransition.TurnOfTutorialScreen();
                 break;
+            case "win":
+                levelTransition.ChangeWinScreen();
+                break;
             case "final":
                 levelTransition.ChangeFinalScene();
                 break;

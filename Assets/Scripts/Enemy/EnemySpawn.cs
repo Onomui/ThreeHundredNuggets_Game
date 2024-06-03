@@ -51,7 +51,6 @@ public class EnemySpawn : MonoBehaviour
         MapGlobalFields.allEnemies.Add(newEnemy);
 
         yield return new WaitForSeconds(respawnTimer);
-        Debug.Log(respawnTimer);
         if (respawnTimer >= spawnTimeLimit)
             StartCoroutine(SpawnRateUp());
 
@@ -157,14 +156,10 @@ public class EnemySpawn : MonoBehaviour
             enemyStack.Push(basicEnemy);
             enemyStack.Push(speedEnemy);
             enemyStack.Push(basicEnemy);
-            enemyStack.Push(EGOR);
             enemyStack.Push(speedEnemy);
             enemyStack.Push(EGOR);
-            enemyStack.Push(basicEnemy);
             enemyStack.Push(speedEnemy);
-            enemyStack.Push(EGOR);
             enemyStack.Push(bossEnemy);
-            enemyStack.Push(EGOR);
             enemyStack.Push(bossEnemy);
             enemyStack.Push(speedEnemy);
             enemyStack.Push(basicEnemy);
@@ -238,7 +233,7 @@ public class EnemySpawn : MonoBehaviour
             enemyStack.Push(basicEnemy);
             enemyStack.Push(speedEnemy);
             enemyStack.Push(basicEnemy);
-            enemyStack.Push(speedEnemy);
+            enemyStack.Push(basicEnemy);
         }
     }
 }

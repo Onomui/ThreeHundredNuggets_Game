@@ -10,14 +10,19 @@ public class PauseScript : MonoBehaviour
 {
 
     private AudioSource clickedAudio;
+    public GameObject GameOverScreen;
+    private gameOverScript gameoverScript;
 
-    private void Awake()
+    private void OnEnable()
     {
         {
-            var root = GetComponent<UIDocument>().rootVisualElement;
+            gameoverScript = GameOverScreen.GetComponent<gameOverScript>();
 
+            var root = GetComponent<UIDocument>().rootVisualElement;
+            
             var continueButton = root.Q<Button>("Continue");
             var soundButton = root.Q<Button>("Sound");
+            var restartButton = root.Q<Button>("Restart");
             var mainMenuButton = root.Q<Button>("MainMenu");
             var exitButton = root.Q<Button>("Exit");
 
@@ -25,6 +30,7 @@ public class PauseScript : MonoBehaviour
 
             continueButton.clicked += ContinueButton_clicked;
             soundButton.clicked += SoundButton_clicked;
+            restartButton.clicked += RestartButton_clicked;
             mainMenuButton.clicked += MainMenuButton_clicked;
             exitButton.clicked += ExitButton_clicked;
 
@@ -32,24 +38,33 @@ public class PauseScript : MonoBehaviour
 
     }
 
+    private void RestartButton_clicked()
+    {
+        clickedAudio.Play();
+        gameoverScript.RestartButton_clicked();
+    }
     private void ExitButton_clicked()
     {
+        clickedAudio.Play();
         Application.Quit();
     }
 
     private void MainMenuButton_clicked()
     {
+        clickedAudio.Play();
         SceneManager.LoadScene("MainMenu");
 
     }
 
     private void SoundButton_clicked()
     {
+        clickedAudio.Play();
         Camera.main.GetComponent<CameraScript>().Mute();
     }
 
     private void ContinueButton_clicked()
     {
+        clickedAudio.Play();
         Camera.main.GetComponent<CameraScript>().Unpause();
     }
 }
