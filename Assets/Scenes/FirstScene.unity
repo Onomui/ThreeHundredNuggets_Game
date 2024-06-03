@@ -77783,6 +77783,7 @@ MonoBehaviour:
   soundManagerObject: {fileID: 2129955199}
   Ui: {fileID: 508031424}
   Tutor: {fileID: 1644724054}
+  PauseMenu: {fileID: 1822926436}
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81668,13 +81669,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1822926438}
   - component: {fileID: 1822926437}
+  - component: {fileID: 1822926439}
   m_Layer: 0
   m_Name: Pause
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1822926437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81706,6 +81708,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1822926439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822926436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a9090477a6f1447ab5cf1b1c44ef77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1852519674
 GameObject:
   m_ObjectHideFlags: 0
